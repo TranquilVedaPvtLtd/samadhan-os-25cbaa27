@@ -648,7 +648,7 @@ var layers = document.querySelectorAll(".sky-layer");
 var stars = document.querySelector(".stars");
 var orb = document.getElementById("orb");
 var clock = document.getElementById("clock");
-var orbPos = {predawn:null,dawn:{t:"72%",l:"12%"},morning:{t:"38%",l:"26%"},midday:{t:"12%",l:"50%"},afternoon:{t:"26%",l:"70%"},dusk:{t:"68%",l:"84%"},night:null};
+var orbPos = {predawn:null,dawn:{t:"80%",l:"5%"},morning:{t:"8%",l:"88%"},midday:{t:"5%",l:"93%"},afternoon:{t:"8%",l:"90%"},dusk:{t:"72%",l:"90%"},night:null};
 function setSky(phase){
   layers.forEach(function(l){ l.classList.toggle("on", l.dataset.sky===phase); });
   stars.classList.toggle("on", phase==="night"||phase==="predawn");
