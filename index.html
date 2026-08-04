@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>A Day in Your New Practice | Prepared for Samadhan Sawant</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1428'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23E6B85C' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-990:#050A18;
+  --navy-950:#070D1F;
+  --navy-900:#0A1428;
+  --navy-800:#101E3C;
+  --navy-700:#1A2B52;
+  --gold:#E6B85C;
+  --gold-deep:#C99A3C;
+  --gold-soft:#F2D492;
+  --cream:#F8F3E8;
+  --cream-dim:#E9E0CB;
+  --ink:#1B2233;
+  --ink-soft:#4A5266;
+  --green:#1FA36B;
+  --wa-green:#0B3D2E;
+  --wa-bubble:#144D3B;
+  --danger:#C4534A;
+  --radius:18px;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--navy-950);
+  color:var(--cream);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--navy-900)}
+
+/* ---------- SKY ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+.sky-layer{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.sky-layer.on{opacity:1}
+.sky-predawn{background:linear-gradient(180deg,#050A18 0%,#0A1330 55%,#1B1F4A 85%,#3A2C55 100%)}
+.sky-dawn{background:linear-gradient(180deg,#131B3E 0%,#3A2C55 45%,#8A4A52 75%,#E0885B 100%)}
+.sky-morning{background:linear-gradient(180deg,#25406E 0%,#4A6B9E 55%,#C9A15E 100%)}
+.sky-midday{background:linear-gradient(180deg,#8FB6D9 0%,#C4D9E9 55%,#EDE7D4 100%)}
+.sky-afternoon{background:linear-gradient(180deg,#A8B8D4 0%,#D9C9A8 55%,#E8C98A 100%)}
+.sky-dusk{background:linear-gradient(180deg,#1E2452 0%,#43315F 50%,#8A4A52 82%,#C77B4E 100%)}
+.sky-night{background:linear-gradient(180deg,#030714 0%,#070D1F 55%,#101E3C 100%)}
+.stars{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.8),transparent 50%),
+    radial-gradient(1px 1px at 28% 8%,rgba(255,255,255,.6),transparent 50%),
+    radial-gradient(1.5px 1.5px at 44% 22%,rgba(255,255,255,.7),transparent 50%),
+    radial-gradient(1px 1px at 61% 12%,rgba(255,255,255,.5),transparent 50%),
+    radial-gradient(1px 1px at 74% 26%,rgba(255,255,255,.8),transparent 50%),
+    radial-gradient(1.5px 1.5px at 87% 9%,rgba(255,255,255,.6),transparent 50%),
+    radial-gradient(1px 1px at 93% 31%,rgba(255,255,255,.5),transparent 50%),
+    radial-gradient(1px 1px at 8% 38%,rgba(255,255,255,.45),transparent 50%),
+    radial-gradient(1px 1px at 52% 34%,rgba(255,255,255,.5),transparent 50%);
+}
+.stars.on{opacity:.9}
+.orb{position:absolute;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#FBE7B4 0%,#E6B85C 45%,rgba(230,184,92,0) 72%);
+  filter:blur(2px);opacity:0;transition:opacity 1.6s ease,top 1.6s ease,left 1.6s ease}
+.orb.on{opacity:.85}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- TOP BAR ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(7,13,31,.45);border-bottom:1px solid rgba(230,184,92,.14)}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--gold);letter-spacing:.02em;text-decoration:none}
+.prepared{font-size:.78rem;color:var(--cream-dim);opacity:.85}
+.clockchip{display:flex;align-items:center;gap:8px;background:rgba(230,184,92,.12);border:1px solid rgba(230,184,92,.3);
+  border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--gold-soft);min-width:96px;justify-content:center}
+.clockchip .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:640px){.prepared{display:none}}
+
+/* ---------- SCENES ---------- */
+main{position:relative;z-index:2}
+.scene{position:relative;min-height:100dvh;display:flex;align-items:center;padding:110px 22px 90px}
+.scene-inner{max-width:1080px;margin:0 auto;width:100%}
+.scene-time{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.scene h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.14;margin-bottom:18px}
+.scene .lede{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--cream-dim);max-width:640px;margin-bottom:36px}
+.scene.light{color:var(--ink)}
+.scene.light .lede{color:var(--ink-soft)}
+.scene.light .scene-time{color:var(--gold-deep)}
+.two-col{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:center}
+@media(max-width:880px){.two-col{grid-template-columns:1fr;gap:34px}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* ---------- HERO ---------- */
+#hero{align-items:center;text-align:center}
+#hero .scene-inner{max-width:900px}
+.hero-kicker{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:26px}
+#hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:1.08;margin-bottom:26px}
+#hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero-sub{font-size:clamp(1.02rem,1.8vw,1.25rem);color:var(--cream-dim);max-width:620px;margin:0 auto 38px}
+.badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:46px}
+.badge{border:1px solid rgba(230,184,92,.4);border-radius:99px;padding:8px 18px;font-size:.85rem;font-weight:600;color:var(--gold-soft);background:rgba(230,184,92,.07)}
+.scroll-cue{display:inline-flex;flex-direction:column;align-items:center;gap:10px;color:var(--cream-dim);font-size:.82rem}
+.scroll-cue .line{width:1px;height:52px;background:linear-gradient(180deg,var(--gold),transparent);animation:drip 2.2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- GLASS PANELS ---------- */
+.panel{background:rgba(10,20,40,.55);border:1px solid rgba(230,184,92,.16);border-radius:var(--radius);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 24px 60px rgba(3,7,20,.45)}
+.scene.light .panel{background:rgba(255,253,247,.82);border-color:rgba(27,34,51,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 24px 60px rgba(27,34,51,.14)}
+.demo-tag{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:600;letter-spacing:.06em;
+  color:var(--gold-soft);background:rgba(230,184,92,.1);border:1px solid rgba(230,184,92,.28);border-radius:99px;padding:4px 12px;margin-bottom:14px}
+.scene.light .demo-tag{color:var(--gold-deep);background:rgba(201,154,60,.09);border-color:rgba(201,154,60,.35)}
+.demo-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+/* ---------- PHONE ---------- */
+.phone{width:min(330px,86vw);margin:0 auto;background:#04070F;border-radius:44px;padding:12px;
+  border:1px solid rgba(230,184,92,.25);box-shadow:0 30px 80px rgba(3,7,20,.6),inset 0 1px 0 rgba(255,255,255,.08);cursor:pointer;user-select:none}
+.phone-screen{background:linear-gradient(180deg,#0B1730 0%,#0A1428 100%);border-radius:34px;overflow:hidden;position:relative;height:560px}
+.phone-notch{width:110px;height:22px;background:#04070F;border-radius:0 0 16px 16px;margin:0 auto;position:relative;z-index:3}
+.pscreen{position:absolute;inset:0;padding:34px 20px 20px;opacity:0;transform:translateX(18px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow-y:auto}
+.pscreen.active{opacity:1;transform:none;pointer-events:auto}
+.pos-status{display:flex;justify-content:space-between;font-size:.68rem;color:#8FA0C4;margin-bottom:16px;padding:0 4px}
+.pscreen h4{font-family:var(--serif);font-size:1.22rem;font-weight:600;color:var(--cream);margin-bottom:3px}
+.pscreen .psub{font-size:.75rem;color:#8FA0C4;margin-bottom:16px}
+.pcard{background:rgba(230,184,92,.06);border:1px solid rgba(230,184,92,.14);border-radius:14px;padding:11px 13px;margin-bottom:9px}
+.pcard .pk{font-size:.66rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.pcard p{font-size:.8rem;color:var(--cream-dim);line-height:1.45}
+.ptag{display:inline-block;font-size:.62rem;font-weight:700;border-radius:6px;padding:1px 7px;margin-left:auto}
+.ptag.done{background:rgba(31,163,107,.18);color:#5ED6A2}
+.ptag.you{background:rgba(230,184,92,.16);color:var(--gold-soft)}
+.phone-dots{display:flex;gap:8px;justify-content:center;padding:13px 0 4px}
+.pdot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(230,184,92,.25);cursor:pointer;transition:.3s;padding:0}
+.pdot.active{background:var(--gold);width:22px;border-radius:99px}
+.phone-hint{text-align:center;font-size:.75rem;color:var(--cream-dim);opacity:.7;margin-top:14px}
+
+/* ---------- WHATSAPP ---------- */
+.wa{max-width:430px;margin:0 auto;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.09);box-shadow:0 30px 80px rgba(3,7,20,.55)}
+.wa-head{background:#0B141A;padding:13px 16px;display:flex;align-items:center;gap:12px}
+.wa-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy-900);font-size:.95rem}
+.wa-head .wn{font-weight:600;font-size:.95rem;color:#E9EDEF}
+.wa-head .ws{font-size:.73rem;color:#5ED6A2}
+.wa-chat{background:#071219 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 8l3 6h-6zM12 30l6 3v-6zM48 30l-6 3v-6zM30 52l3-6h-6z' fill='%230D1D28' /%3E%3C/svg%3E");
+  height:390px;overflow-y:auto;padding:18px 14px;display:flex;flex-direction:column;gap:9px}
+.msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:.86rem;line-height:1.45;position:relative;animation:msgin .3s ease}
+@keyframes msgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.out{align-self:flex-end;background:#005C4B;color:#E9EDEF;border-bottom-right-radius:3px}
+.msg.in{align-self:flex-start;background:#1F2C34;color:#E9EDEF;border-bottom-left-radius:3px}
+.msg .mtime{display:block;font-size:.64rem;color:rgba(233,237,239,.55);text-align:right;margin-top:3px}
+.msg.doc{display:flex;align-items:center;gap:11px;background:#1F2C34}
+.doc-ic{width:38px;height:44px;background:rgba(196,83,74,.15);border:1px solid rgba(196,83,74,.4);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#E88;flex-shrink:0}
+.msg.doc .dn{font-size:.8rem;font-weight:600}
+.msg.doc .ds{font-size:.68rem;color:rgba(233,237,239,.55)}
+.typing{align-self:flex-start;background:#1F2C34;border-radius:12px;padding:12px 16px;display:flex;gap:5px}
+.typing span{width:7px;height:7px;border-radius:50%;background:#8696A0;animation:tb 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.18s}.typing span:nth-child(3){animation-delay:.36s}
+@keyframes tb{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.wa-chips{background:#0B141A;padding:13px 14px;display:flex;flex-wrap:wrap;gap:8px;min-height:60px}
+.chip{border:1px solid rgba(94,214,162,.5);background:rgba(31,163,107,.08);color:#5ED6A2;border-radius:99px;
+  padding:8px 15px;font-size:.8rem;font-family:var(--sans);cursor:pointer;transition:.2s}
+.chip:hover{background:rgba(31,163,107,.2)}
+.chip:active{transform:scale(.96)}
+.chip:disabled{opacity:.35;cursor:default}
+.wa-note{font-size:.78rem;color:#8696A0;padding:2px 4px}
+.wa-sys{align-self:center;background:rgba(230,184,92,.1);border:1px solid rgba(230,184,92,.3);color:var(--gold-soft);
+  font-size:.74rem;border-radius:10px;padding:8px 14px;text-align:center;max-width:92%}
+
+/* ---------- ENGINE ---------- */
+.engine{padding:26px}
+.personas{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.persona{border:1.5px solid rgba(27,34,51,.2);background:rgba(255,255,255,.55);color:var(--ink);border-radius:14px;
+  padding:11px 16px;font-size:.85rem;font-family:var(--sans);font-weight:500;cursor:pointer;transition:.2s;text-align:left;flex:1;min-width:190px}
+.persona small{display:block;color:var(--ink-soft);font-weight:400;font-size:.74rem;margin-top:2px}
+.persona.sel{border-color:var(--gold-deep);background:rgba(230,184,92,.16);box-shadow:0 0 0 3px rgba(201,154,60,.15)}
+.persona:active{transform:scale(.98)}
+.runbtn{display:inline-flex;align-items:center;gap:9px;background:var(--navy-900);color:var(--gold-soft);border:none;
+  border-radius:12px;padding:13px 26px;font-size:.92rem;font-weight:600;font-family:var(--sans);cursor:pointer;transition:.2s}
+.runbtn:hover{background:var(--navy-800)}
+.runbtn:active{transform:scale(.97)}
+.runbtn:disabled{opacity:.5;cursor:default}
+.agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:22px}
+.agent{background:rgba(255,255,255,.6);border:1px solid rgba(27,34,51,.12);border-radius:14px;padding:14px;min-height:118px;opacity:.4;transition:opacity .4s}
+.agent.live{opacity:1;box-shadow:0 0 0 2px rgba(201,154,60,.35)}
+.agent.done-a{opacity:1}
+.agent h5{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.agent h5 .sp{width:8px;height:8px;border-radius:50%;border:2px solid var(--gold-deep);border-top-color:transparent;animation:spin .8s linear infinite;display:none}
+.agent.live h5 .sp{display:inline-block}
+.agent.done-a h5 .sp{display:none}
+.agent.done-a h5::after{content:"done";margin-left:auto;font-size:.62rem;color:var(--green);letter-spacing:.02em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.agent ul{list-style:none;font-size:.76rem;color:var(--ink-soft)}
+.agent li{padding:2.5px 0;animation:msgin .35s ease}
+.shortlist{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.sl-card{background:#fff;border:1px solid rgba(27,34,51,.13);border-radius:16px;padding:18px;animation:msgin .5s ease;box-shadow:0 12px 34px rgba(27,34,51,.1)}
+.sl-card .rank{font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold-deep);margin-bottom:6px}
+.sl-card h6{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.sl-card ul{list-style:none;font-size:.79rem;color:var(--ink-soft)}
+.sl-card li{padding:3px 0 3px 16px;position:relative}
+.sl-card li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+.engine-close{margin-top:22px;font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--ink);animation:msgin .6s ease}
+.engine-fine{font-size:.76rem;color:var(--ink-soft);margin-top:8px}
+
+/* ---------- PROPOSAL MAKER ---------- */
+.pm{padding:26px}
+.pm-doc{background:#FDFBF5;border:1px solid rgba(27,34,51,.14);border-radius:14px;margin-top:20px;min-height:380px;
+  box-shadow:0 18px 50px rgba(27,34,51,.16);overflow:hidden;position:relative}
+.pm-doc .dochead{background:var(--navy-900);color:var(--cream);padding:20px 26px}
+.pm-doc .dochead .dh1{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--gold-soft);letter-spacing:.04em}
+.pm-doc .dochead .dh2{font-size:.78rem;color:var(--cream-dim);margin-top:3px}
+.pm-body{padding:24px 26px;color:var(--ink)}
+.pm-sec{margin-bottom:20px;animation:msgin .5s ease}
+.pm-sec h6{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px}
+.pm-sec p,.pm-sec li{font-size:.85rem;color:var(--ink-soft);line-height:1.55}
+.pm-sec ul{list-style:none}
+.pm-sec li{padding:3px 0 3px 16px;position:relative}
+.pm-sec li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold-deep)}
+.mixbar{display:flex;height:34px;border-radius:9px;overflow:hidden;margin-top:8px;font-size:.68rem;font-weight:700;color:#fff}
+.mixbar div{display:flex;align-items:center;justify-content:center;min-width:0}
+.mix-eq{background:var(--navy-700)}
+.mix-debt{background:var(--gold-deep)}
+.mix-gold{background:#8A6B3A}
+.pm-foot{border-top:1px dashed rgba(27,34,51,.2);padding:14px 26px;font-size:.72rem;color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.shimmer{position:absolute;inset:0;background:#FDFBF5;display:flex;flex-direction:column;gap:14px;padding:26px;z-index:2}
+.shim{border-radius:8px;background:linear-gradient(90deg,#EFE9DA 25%,#F8F3E8 50%,#EFE9DA 75%);background-size:200% 100%;animation:shimmer 1.1s infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.pm-status{font-size:.78rem;color:var(--ink-soft);margin-top:12px;min-height:20px}
+
+/* ---------- QUIET WORK ---------- */
+.quiet-list{list-style:none;max-width:560px}
+.quiet-list li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(230,184,92,.12);font-size:.95rem;color:var(--cream-dim)}
+.quiet-list li .tick{width:22px;height:22px;border-radius:50%;background:rgba(31,163,107,.16);border:1px solid rgba(31,163,107,.5);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.quiet-list li .tick::after{content:"";width:9px;height:5px;border-left:2px solid #5ED6A2;border-bottom:2px solid #5ED6A2;transform:rotate(-45deg) translateY(-1px)}
+.stat-line{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.8rem);font-style:italic;color:var(--gold-soft);max-width:640px;margin-top:34px;line-height:1.4}
+
+/* ---------- VAULT ---------- */
+.vault-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:34px}
+.vault-card{background:rgba(10,20,40,.6);border:1px solid rgba(230,184,92,.18);border-radius:16px;padding:20px}
+.vault-card h5{font-family:var(--serif);font-size:1.02rem;font-weight:600;color:var(--gold-soft);margin-bottom:8px}
+.vault-card p{font-size:.83rem;color:var(--cream-dim)}
+.vault-fig{margin:10px auto 0;display:block;max-width:520px;width:100%}
+.vault-fine{font-size:.78rem;color:var(--cream-dim);opacity:.75;margin-top:26px;max-width:620px}
+
+/* ---------- BEFORE / AFTER ---------- */
+.ba{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(230,184,92,.22);
+  box-shadow:0 30px 80px rgba(3,7,20,.5);aspect-ratio:1280/900;background:#0A1428}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.ba .after-wrap{position:absolute;inset:0;overflow:hidden}
+.ba-handle{position:absolute;top:0;bottom:0;width:3px;background:var(--gold);z-index:4;transform:translateX(-1.5px);pointer-events:none}
+.ba-handle::after{content:"drag";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--gold);color:var(--navy-900);font-size:.66rem;font-weight:700;letter-spacing:.06em;
+  border-radius:99px;padding:7px 11px;white-space:nowrap;box-shadow:0 6px 20px rgba(3,7,20,.4)}
+.ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
+.ba-label{position:absolute;top:14px;z-index:4;font-size:.72rem;font-weight:700;letter-spacing:.08em;border-radius:8px;padding:5px 11px}
+.ba-label.old{left:14px;background:rgba(7,13,31,.75);color:var(--cream-dim)}
+.ba-label.new{right:14px;background:var(--gold);color:var(--navy-900)}
+.gap-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.gap-chip{font-size:.78rem;color:var(--cream-dim);border:1px solid rgba(196,83,74,.45);background:rgba(196,83,74,.1);border-radius:99px;padding:6px 14px}
+.gap-chip.good{border-color:rgba(31,163,107,.5);background:rgba(31,163,107,.1);color:#8FE0BC}
+
+/* ---------- ENGAGE ---------- */
+.engage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px;margin-top:38px}
+.eng-card{background:rgba(10,20,40,.6);border:1px solid rgba(230,184,92,.18);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease}
+.eng-card:hover{transform:translateY(-5px);border-color:rgba(230,184,92,.45)}
+.eng-card.circle{background:linear-gradient(160deg,rgba(230,184,92,.14),rgba(10,20,40,.6) 60%);border-color:rgba(230,184,92,.4)}
+.eng-card h4{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--gold-soft);margin-bottom:4px}
+.eng-card .who{font-size:.78rem;color:var(--cream-dim);opacity:.8;margin-bottom:14px}
+.eng-card ul{list-style:none;font-size:.85rem;color:var(--cream-dim);flex:1}
+.eng-card li{padding:4px 0 4px 18px;position:relative}
+.eng-card li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+.eng-card .inv{margin-top:18px;padding-top:14px;border-top:1px solid rgba(230,184,92,.15);font-size:.76rem;color:var(--gold-soft)}
+.entry-note{margin-top:26px;font-size:.92rem;color:var(--cream-dim);max-width:640px}
+.entry-note strong{color:var(--gold-soft);font-weight:600}
+
+/* ---------- CLOSE ---------- */
+#close{text-align:center}
+#close h2{font-size:clamp(2rem,5vw,3.4rem);max-width:820px;margin:0 auto 20px}
+#close .lede{margin:0 auto 40px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;padding:15px 30px;font-size:.98rem;font-weight:600;
+  font-family:var(--sans);text-decoration:none;transition:.2s;border:none;cursor:pointer}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:var(--navy-900)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-ghost{border:1.5px solid rgba(230,184,92,.5);color:var(--gold-soft);background:transparent}
+.btn-ghost:hover{background:rgba(230,184,92,.1)}
+.close-meta{margin-top:52px;font-size:.78rem;color:var(--cream-dim);opacity:.7;line-height:1.9}
+footer{position:relative;z-index:2;text-align:center;padding:26px;font-size:.75rem;color:var(--cream-dim);opacity:.6;border-top:1px solid rgba(230,184,92,.1)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.2s !important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true">
+  <div class="sky-layer sky-predawn on" data-sky="predawn"></div>
+  <div class="sky-layer sky-dawn" data-sky="dawn"></div>
+  <div class="sky-layer sky-morning" data-sky="morning"></div>
+  <div class="sky-layer sky-midday" data-sky="midday"></div>
+  <div class="sky-layer sky-afternoon" data-sky="afternoon"></div>
+  <div class="sky-layer sky-dusk" data-sky="dusk"></div>
+  <div class="sky-layer sky-night" data-sky="night"></div>
+  <div class="stars on"></div>
+  <div class="orb" id="orb"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#hero">Jarvis Daily</a>
+  <span class="prepared">Prepared for Samadhan Sawant</span>
+  <span class="clockchip"><span class="dot"></span><span id="clock">Today</span></span>
+</header>
+
+<main>
+
+<!-- S0 HERO -->
+<section class="scene" id="hero" data-sky="predawn" data-time="Today">
+  <div class="scene-inner">
+    <p class="hero-kicker reveal">A private proposal, built around one day</p>
+    <h1 class="reveal d1">Trust that lasts decades.<br><em>One new colleague.</em></h1>
+    <p class="hero-sub reveal d2">Samadhan, you have built a practice that clients stay with for decades. This page walks through a single working day - your day - with one system quietly working beside you. Everything you are about to see is a working demonstration. Touch it, try it, break it.</p>
+    <div class="badges reveal d3">
+      <span class="badge">MDRT USA member</span>
+      <span class="badge">Certified Financial Planner</span>
+      <span class="badge">MBA</span>
+      <span class="badge">Pune and Mumbai</span>
+    </div>
+    <div class="scroll-cue reveal d3"><span>Begin the day</span><span class="line"></span></div>
+  </div>
+</section>
+
+<!-- S1 MORNING BRIEF -->
+<section class="scene" id="s1" data-sky="dawn" data-time="7:02 AM">
+  <div class="scene-inner two-col">
+    <div>
+      <p class="scene-time reveal">7:02 AM</p>
+      <h2 class="reveal d1">Your practice reports in before your first cup of tea.</h2>
+      <p class="lede reveal d2">One operating system runs your whole practice. It is installed on your own machine or a private server, it holds one unified memory of every client, folio, policy and conversation, and all of it lives in your pocket. This is its morning brief.</p>
+      <p class="lede reveal d3">No logging into six portals. No missed renewal. The system reads your day before you do, and tells you the three things that matter.</p>
+    </div>
+    <div class="reveal d2">
+      <span class="demo-tag">Live demo - tap the phone</span>
+      <div class="phone" id="phoneDemo" role="group" aria-label="Phone demonstration">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="pscreen active">
+            <div class="pos-status"><span>7:02</span><span>Your OS</span></div>
+            <h4>Good morning, Samadhan</h4>
+            <p class="psub">Tuesday, 4 August - your brief</p>
+            <div class="pcard"><div class="pk">SIPs today</div><p>3 client SIPs process today. All mandates healthy, nothing needs you.</p></div>
+            <div class="pcard"><div class="pk">Renewals this week</div><p>2 policy renewals: R. Kulkarni (motor, Thu), S. Iyer (health, Sat). Reminders already sent.</p></div>
+            <div class="pcard"><div class="pk">Overnight</div><p>1 new enquiry from your website: term cover, Kothrud. Callback offered for 11:30 AM.</p></div>
+            <div class="pcard"><div class="pk">Personal touch</div><p>Mrs. Joshi's birthday today. A note in your tone is drafted, waiting for your OK.</p></div>
+          </div>
+          <div class="pscreen">
+            <div class="pos-status"><span>7:03</span><span>Your OS</span></div>
+            <h4>One inbox</h4>
+            <p class="psub">WhatsApp, email and website - one stream</p>
+            <div class="pcard"><div class="pk">WhatsApp <span class="ptag done">handled</span></div><p>Anita Deshpande asked for her portfolio statement yesterday. Sent within a minute, with a summary.</p></div>
+            <div class="pcard"><div class="pk">WhatsApp <span class="ptag done">handled</span></div><p>Prakash Mane asked his next SIP date - answered in Marathi.</p></div>
+            <div class="pcard"><div class="pk">Email <span class="ptag done">handled</span></div><p>Insurer renewal receipt received - filed against the right policy automatically.</p></div>
+            <div class="pcard"><div class="pk">Website <span class="ptag you">for you</span></div><p>New term-cover enquiry. The assistant qualified it; a one-to-one is proposed.</p></div>
+          </div>
+          <div class="pscreen">
+            <div class="pos-status"><span>7:04</span><span>Your OS</span></div>
+            <h4>Anita Deshpande</h4>
+            <p class="psub">Client since 2014 - one card, whole story</p>
+            <div class="pcard"><div class="pk">Holdings</div><p>4 mutual fund folios, 2 policies (term and health). All premiums and SIPs on time.</p></div>
+            <div class="pcard"><div class="pk">Goal</div><p>Daughter's admission 2027. Education goal tracking comfortably on plan.</p></div>
+            <div class="pcard"><div class="pk">Last one-to-one</div><p>12 June, at your Pune office. Notes filed. September review reminder queued.</p></div>
+            <div class="pcard"><div class="pk">The memory</div><p>Every conversation since 2014 is here. Nothing depends on anyone's recall.</p></div>
+          </div>
+        </div>
+        <div class="phone-dots">
+          <button class="pdot active" aria-label="Screen 1"></button>
+          <button class="pdot" aria-label="Screen 2"></button>
+          <button class="pdot" aria-label="Screen 3"></button>
+        </div>
+      </div>
+      <p class="phone-hint">Tap the screen to move through the three views</p>
+    </div>
+  </div>
+</section>
+
+<!-- S2 WHATSAPP -->
+<section class="scene" id="s2" data-sky="morning" data-time="9:40 AM">
+  <div class="scene-inner two-col">
+    <div>
+      <p class="scene-time reveal">9:40 AM</p>
+      <h2 class="reveal d1">A client asks. The answer arrives in seconds, in your voice.</h2>
+      <p class="lede reveal d2">The WhatsApp gateway is part of the same OS, drawing on the same memory. Clients get statements, SIP answers and meeting slots instantly - in English or Marathi - while anything that needs your judgement comes to you first.</p>
+      <p class="lede reveal d3">Play the client. Tap the green messages and watch how your assistant would answer them.</p>
+    </div>
+    <div class="reveal d2">
+      <span class="demo-tag">Live demo - you are the client</span>
+      <div class="wa">
+        <div class="wa-head">
+          <div class="wa-av">SS</div>
+          <div>
+            <div class="wn">Samadhan Sawant</div>
+            <div class="ws">assistant online - replies in seconds</div>
+          </div>
+        </div>
+        <div class="wa-chat" id="waChat">
+          <div class="msg in">Namaskar! This is the office of Samadhan Sawant. How can I help you today?<span class="mtime">9:40 AM</span></div>
+        </div>
+        <div class="wa-chips" id="waChips"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 FUND DISCOVERY -->
+<section class="scene light" id="s3" data-sky="midday" data-time="11:15 AM">
+  <div class="scene-inner">
+    <p class="scene-time reveal">11:15 AM</p>
+    <h2 class="reveal d1">Before the review meeting, your research team of four gets to work.</h2>
+    <p class="lede reveal d2">The discovery engine sends dynamic agents across the market: screening the universe, checking consistency, testing fit against what the client already holds, applying the tax lens. Minutes of machine work, then a shortlist with reasons. The engine researches. The recommendation is always yours.</p>
+    <div class="panel engine reveal d3">
+      <span class="demo-tag">Live demo - sample data</span>
+      <p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:14px">Pick the client sitting across the table, then run the discovery.</p>
+      <div class="personas" id="personaRow">
+        <button class="persona sel" data-p="0">Daughter's education, 12 years away<small>Moderate risk, existing folios considered</small></button>
+        <button class="persona" data-p="1">Retirement corpus, 20 years<small>Conservative, steady compounding</small></button>
+        <button class="persona" data-p="2">Wealth creation, 7 years<small>Comfortable with equity swings</small></button>
+      </div>
+      <button class="runbtn" id="runEngine">Run discovery</button>
+      <div class="agents" id="agentGrid" hidden>
+        <div class="agent" data-a="0"><h5><span class="sp"></span>Screening agent</h5><ul></ul></div>
+        <div class="agent" data-a="1"><h5><span class="sp"></span>Quality agent</h5><ul></ul></div>
+        <div class="agent" data-a="2"><h5><span class="sp"></span>Fit agent</h5><ul></ul></div>
+        <div class="agent" data-a="3"><h5><span class="sp"></span>Tax agent</h5><ul></ul></div>
+      </div>
+      <div id="shortlistWrap" hidden>
+        <div class="shortlist" id="shortlist"></div>
+        <p class="engine-close">"The engine researches. You decide."</p>
+        <p class="engine-fine">Illustration with sample categories. The live system shortlists actual schemes with the full reasoning trail, for your review before any client sees a word.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 PROPOSAL MAKER -->
+<section class="scene light" id="s4" data-sky="afternoon" data-time="2:30 PM">
+  <div class="scene-inner">
+    <p class="scene-time reveal">2:30 PM</p>
+    <h2 class="reveal d1">A client plan that used to take an evening now takes a minute.</h2>
+    <p class="lede reveal d2">Pick a client and the proposal maker assembles a financial plan in your brand and your name - goals, path, protection check, asset mix - ready for your review before it ever reaches the client.</p>
+    <div class="panel pm reveal d3">
+      <span class="demo-tag">Live demo - sample clients</span>
+      <div class="personas">
+        <button class="persona pm-p sel" data-pm="0">Rahul and Priya, 34<small>Child's education plus protection</small></button>
+        <button class="persona pm-p" data-pm="1">Suresh Patil, 52<small>Retirement eight years away</small></button>
+      </div>
+      <button class="runbtn" id="pmRun">Generate the plan</button>
+      <p class="pm-status" id="pmStatus"></p>
+      <div class="pm-doc" id="pmDoc" hidden>
+        <div class="shimmer" id="pmShimmer" hidden>
+          <div class="shim" style="height:52px"></div>
+          <div class="shim" style="height:18px;width:70%"></div>
+          <div class="shim" style="height:18px;width:85%"></div>
+          <div class="shim" style="height:90px"></div>
+          <div class="shim" style="height:18px;width:60%"></div>
+          <div class="shim" style="height:70px"></div>
+        </div>
+        <div class="dochead">
+          <div class="dh1">SAMADHAN SAWANT - FINANCIAL CONSULTANT</div>
+          <div class="dh2" id="pmFor">Financial plan prepared for Rahul and Priya Deshmukh</div>
+        </div>
+        <div class="pm-body" id="pmBody"></div>
+        <div class="pm-foot">
+          <span>Prepared by Samadhan Sawant, MBA, CFP - MDRT USA</span>
+          <span>Draft for discussion - sample figures for illustration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5 QUIET WORK -->
+<section class="scene" id="s5" data-sky="dusk" data-time="5:00 PM">
+  <div class="scene-inner">
+    <p class="scene-time reveal">5:00 PM</p>
+    <h2 class="reveal d1">The quiet work finished itself.</h2>
+    <p class="lede reveal d2">While you were with clients, the CRM inside your OS kept the practice moving. Nothing here needed you - it needed doing.</p>
+    <ul class="quiet-list">
+      <li class="reveal"><span class="tick"></span>Follow-ups queued for the three clients whose reviews fall due this month</li>
+      <li class="reveal d1"><span class="tick"></span>Renewal nudges sent, politely, to both policyholders - replies filed</li>
+      <li class="reveal d2"><span class="tick"></span>This morning's meeting notes transcribed and attached to each client's card</li>
+      <li class="reveal d3"><span class="tick"></span>Mrs. Joshi's birthday note approved by you at 7:15, delivered at 9:00</li>
+      <li class="reveal d3"><span class="tick"></span>The new Kothrud enquiry confirmed for tomorrow, 11:30 AM, at your office</li>
+    </ul>
+    <p class="stat-line reveal d3">You told us something that stayed with us: only a third of your clients live on their phones. The rest want you, across a table. This system exists so they get more of you, not less.</p>
+  </div>
+</section>
+
+<!-- S6 VAULT -->
+<section class="scene" id="s6" data-sky="night" data-time="9:00 PM">
+  <div class="scene-inner">
+    <p class="scene-time reveal">9:00 PM</p>
+    <h2 class="reveal d1">Your clients trust you with everything.<br>That trust never leaves your building.</h2>
+    <p class="lede reveal d2">This is the part of the design we care about most, because your practice runs on confidentiality. The operating system installs on your machine or your own private server. The unified memory - every client, folio, policy, conversation - belongs to you and stays with you.</p>
+    <svg class="vault-fig reveal d2" viewBox="0 0 520 300" role="img" aria-label="Diagram: all client data stays inside your own boundary">
+      <defs>
+        <radialGradient id="vg" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#E6B85C" stop-opacity=".14"/>
+          <stop offset="100%" stop-color="#E6B85C" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect x="40" y="20" width="440" height="240" rx="24" fill="url(#vg)" stroke="#E6B85C" stroke-width="1.6" stroke-dasharray="7 6"/>
+      <text x="260" y="48" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="13" font-weight="600">YOUR OFFICE OR YOUR PRIVATE SERVER</text>
+      <circle cx="260" cy="150" r="42" fill="#0A1428" stroke="#E6B85C" stroke-width="1.6"/>
+      <text x="260" y="146" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="11" font-weight="600">ONE</text>
+      <text x="260" y="161" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="11" font-weight="600">MEMORY</text>
+      <g fill="#0A1428" stroke="#E6B85C" stroke-width="1.2">
+        <circle cx="130" cy="100" r="26"/><circle cx="390" cy="100" r="26"/>
+        <circle cx="130" cy="205" r="26"/><circle cx="390" cy="205" r="26"/>
+      </g>
+      <g fill="#E9E0CB" font-family="Instrument Sans" font-size="9.5" text-anchor="middle">
+        <text x="130" y="97">WhatsApp</text><text x="130" y="108">gateway</text>
+        <text x="390" y="97">Discovery</text><text x="390" y="108">engine</text>
+        <text x="130" y="202">CRM and</text><text x="130" y="213">follow-ups</text>
+        <text x="390" y="202">Proposal</text><text x="390" y="213">maker</text>
+      </g>
+      <g stroke="#E6B85C" stroke-width="1" opacity=".55">
+        <line x1="155" y1="112" x2="222" y2="140"/><line x1="365" y1="112" x2="298" y2="140"/>
+        <line x1="155" y1="193" x2="222" y2="163"/><line x1="365" y1="193" x2="298" y2="163"/>
+      </g>
+      <circle r="3.5" fill="#5ED6A2"><animateMotion dur="4s" repeatCount="indefinite" path="M155,112 L222,140"/></circle>
+      <circle r="3.5" fill="#5ED6A2"><animateMotion dur="4s" begin="1s" repeatCount="indefinite" path="M365,193 L298,163"/></circle>
+      <circle r="3.5" fill="#5ED6A2"><animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M365,112 L298,140"/></circle>
+      <text x="260" y="288" text-anchor="middle" fill="#E9E0CB" font-family="Instrument Sans" font-size="11" opacity=".8">Nothing crosses this line without your say</text>
+    </svg>
+    <div class="vault-grid">
+      <div class="vault-card reveal"><h5>Installed where you choose</h5><p>Your office machine or a private virtual server. Either way, you hold the keys and the phone app talks only to it.</p></div>
+      <div class="vault-card reveal d1"><h5>One memory, yours</h5><p>Clients, folios, policies, conversations - one place, owned by you. We keep no copy of your client data.</p></div>
+      <div class="vault-card reveal d2"><h5>Leave anytime, with everything</h5><p>Full export of every record whenever you ask. Your data is never the lock-in - the usefulness is.</p></div>
+      <div class="vault-card reveal d3"><h5>Guarded like a bank's</h5><p>Encrypted at rest and in transit, role-based access for staff, and an audit trail of who saw what, when.</p></div>
+    </div>
+    <p class="vault-fine reveal d3">Where the system uses standard channels - such as the official WhatsApp business gateway - those services operate under their own terms, while your client records still live only with you.</p>
+  </div>
+</section>
+
+<!-- S7 PUBLIC FACE -->
+<section class="scene" id="s7" data-sky="night" data-time="Tomorrow">
+  <div class="scene-inner">
+    <p class="scene-time reveal">Tomorrow morning</p>
+    <h2 class="reveal d1">And the first thing the world sees of you gets a new face.</h2>
+    <p class="lede reveal d2">Your website served well for over a decade. But the web moved, and your clients' phones moved with it. Drag the gold line: on the left, your site today; on the right, the new samadhansawant.com we have already built as a working preview - with the same assistant from this morning answering visitors on it.</p>
+    <div class="ba reveal d2">
+      <img src="assets/old-site.png" alt="Screenshot of the current samadhansawant.com website">
+      <div class="after-wrap" id="afterWrap">
+        <img src="assets/new-site.png" alt="Preview of the redesigned samadhansawant.com website">
+      </div>
+      <div class="ba-handle" id="baHandle"></div>
+      <span class="ba-label old">Your site today</span>
+      <span class="ba-label new">The new look</span>
+      <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Compare old and new website">
+    </div>
+    <div class="gap-chips reveal d3">
+      <span class="gap-chip">Today: no security padlock</span>
+      <span class="gap-chip">Today: built for Internet Explorer, 1024 x 768</span>
+      <span class="gap-chip">Today: last refreshed in 2013</span>
+      <span class="gap-chip good">New: secure, mobile-first, yours</span>
+      <span class="gap-chip good">New: assistant answers visitors day and night</span>
+    </div>
+    <p style="margin-top:30px" class="reveal d3">
+      <a class="btn btn-gold" href="new-website/" target="_blank" rel="noopener">Open your new website</a>
+    </p>
+  </div>
+</section>
+
+<!-- S8 HOW WE WORK -->
+<section class="scene" id="s8" data-sky="night" data-time="Working together">
+  <div class="scene-inner">
+    <h2 class="reveal">Three ways to begin. One for your circle.</h2>
+    <p class="lede reveal d1">Every practice is different, so the engagement bends to yours. Whichever shape you choose, the system is built for you, not by you.</p>
+    <div class="engage-grid">
+      <div class="eng-card reveal"><h4>Done with you</h4><p class="who">You and your team stay hands-on</p>
+        <ul><li>We install the OS and build your modules</li><li>Your team runs it day to day, trained by us</li><li>You own the rhythm; we stay a call away</li></ul>
+        <p class="inv">Investment discussed one-to-one</p></div>
+      <div class="eng-card reveal d1"><h4>Done for you</h4><p class="who">We build it and we run it</p>
+        <ul><li>Everything above, plus we operate it daily</li><li>Assistant replies, briefs and follow-ups managed</li><li>You review, approve and meet clients - we do the rest</li></ul>
+        <p class="inv">Investment discussed one-to-one</p></div>
+      <div class="eng-card reveal d2"><h4>Ongoing care</h4><p class="who">A retainer that keeps it sharp</p>
+        <ul><li>Monitoring, updates and new capabilities</li><li>The system learns your practice month on month</li><li>Priority support on WhatsApp, always</li></ul>
+        <p class="inv">Investment discussed one-to-one</p></div>
+      <div class="eng-card circle reveal d3"><h4>For your circle</h4><p class="who">The advisors who will ask you about this</p>
+        <ul><li>Each practice gets its own private install</li><li>Every advisor's data stays entirely their own</li><li>Group commercials for the circle, agreed together</li></ul>
+        <p class="inv">Shaped in a conversation with you first</p></div>
+    </div>
+    <p class="entry-note reveal d3"><strong>Not sure where to begin?</strong> Many practices start with just the new website and the WhatsApp assistant, see the difference for a month, and grow into the full OS from there.</p>
+  </div>
+</section>
+
+<!-- S9 CLOSE -->
+<section class="scene" id="close" data-sky="predawn" data-time="Your move">
+  <div class="scene-inner">
+    <h2 class="reveal">Your practice never stopped growing. Its software stopped in 2013.</h2>
+    <p class="lede reveal d1">The demos on this page are working previews built for you, on your practice, before any agreement. The next step is the kind you prefer: a one-to-one.</p>
+    <div class="cta-row reveal d2">
+      <a class="btn btn-gold" href="https://wa.me/919673758777?text=Hello%20Shruti%2C%20I%20went%20through%20the%20proposal%20page.%20Let%27s%20talk." target="_blank" rel="noopener">Message Shruti on WhatsApp</a>
+      <a class="btn btn-ghost" href="mailto:shruti@jarvisdaily.com?subject=Samadhan%20Sawant%20-%20AI%20practice%20proposal">Write to shruti@jarvisdaily.com</a>
+    </div>
+    <p class="close-meta reveal d3">Prepared for Mr. Samadhan Sawant, Pune - 4 August 2026<br>
+    Jarvis Daily (Tranquil Veda Private Limited) - built for you, not by you<br>
+    This page is private and unlisted. Please do not circulate the link.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>Jarvis Daily - Pune, Maharashtra - hello@jarvisdaily.com</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script>
+(function(){
+"use strict";
+var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- reveals ---------- */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(function(el){ reduce ? el.classList.add("in") : io.observe(el); });
+
+/* ---------- sky + clock ---------- */
+var layers = document.querySelectorAll(".sky-layer");
+var stars = document.querySelector(".stars");
+var orb = document.getElementById("orb");
+var clock = document.getElementById("clock");
+var orbPos = {predawn:null,dawn:{t:"72%",l:"12%"},morning:{t:"38%",l:"26%"},midday:{t:"12%",l:"50%"},afternoon:{t:"26%",l:"70%"},dusk:{t:"68%",l:"84%"},night:null};
+function setSky(phase){
+  layers.forEach(function(l){ l.classList.toggle("on", l.dataset.sky===phase); });
+  stars.classList.toggle("on", phase==="night"||phase==="predawn");
+  var p = orbPos[phase];
+  if(p){ orb.style.top=p.t; orb.style.left=p.l; orb.classList.add("on"); } else { orb.classList.remove("on"); }
+}
+var sceneIO = new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      setSky(e.target.dataset.sky);
+      if(clock.textContent!==e.target.dataset.time){ clock.textContent=e.target.dataset.time; }
+    }
+  });
+},{threshold:.45});
+document.querySelectorAll(".scene").forEach(function(s){ sceneIO.observe(s); });
+
+/* ---------- phone demo ---------- */
+var phone = document.getElementById("phoneDemo");
+var screens = phone.querySelectorAll(".pscreen");
+var dots = phone.querySelectorAll(".pdot");
+var pIdx = 0, pTimer = null, pTouched = false;
+function pShow(i){
+  pIdx = (i+screens.length)%screens.length;
+  screens.forEach(function(s,k){ s.classList.toggle("active",k===pIdx); });
+  dots.forEach(function(d,k){ d.classList.toggle("active",k===pIdx); });
+}
+phone.querySelector(".phone-screen").addEventListener("click",function(){ pTouched=true; clearInterval(pTimer); pShow(pIdx+1); });
+dots.forEach(function(d,k){ d.addEventListener("click",function(ev){ ev.stopPropagation(); pTouched=true; clearInterval(pTimer); pShow(k); }); });
+if(!reduce){
+  var phoneIO = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !pTouched && !pTimer){ pTimer=setInterval(function(){ pShow(pIdx+1); },4800); }
+      else if(!e.isIntersecting && pTimer){ clearInterval(pTimer); pTimer=null; }
+    });
+  },{threshold:.4});
+  phoneIO.observe(phone);
+}
+
+/* ---------- whatsapp demo ---------- */
+var waChat = document.getElementById("waChat");
+var waChips = document.getElementById("waChips");
+var waSteps = [
+  {chip:"What is my SIP status?", replies:[
+    {t:"text", txt:"Hello Anita ji! All 3 of your SIPs are active and on schedule. The next instalment goes on Thursday, 6 August. Would you like your full statement?"}]},
+  {chip:"Yes, send my portfolio statement", replies:[
+    {t:"doc", name:"Portfolio_Statement_Aug2026.pdf", size:"PDF - 214 KB"},
+    {t:"text", txt:"Here you go - prepared just now from your folios. The password is your PAN, as usual. Overall the portfolio is tracking your daughter's 2027 goal comfortably."}]},
+  {chip:"माझा पुढचा SIP कधी आहे?", replies:[
+    {t:"text", txt:"नमस्कार! तुमचा पुढचा SIP गुरुवारी, ६ ऑगस्ट रोजी नियोजित आहे. आतापर्यंतचे सर्व हप्ते वेळेवर जमा झाले आहेत."}]},
+  {chip:"Can I meet Samadhan sir this week?", replies:[
+    {t:"text", txt:"Of course. Sir is free on Friday at 11:00 AM or Saturday at 4:30 PM, at the Pune office near Shahu College Road. Which suits you?"},
+    {t:"text", txt:"Friday 11:00 AM is confirmed. It is on sir's calendar, and you will both get a gentle reminder that morning."}]}
+];
+var waDone = 0;
+function waTime(){ var d=["9:40","9:41","9:42","9:44","9:45"]; return (d[waDone]||"9:45")+" AM"; }
+function addMsg(cls,html){
+  var m=document.createElement("div"); m.className="msg "+cls; m.innerHTML=html+'<span class="mtime">'+waTime()+'</span>';
+  waChat.appendChild(m); waChat.scrollTop=waChat.scrollHeight; return m;
+}
+function renderChips(){
+  waChips.innerHTML="";
+  if(waDone>=waSteps.length){
+    var n=document.createElement("p"); n.className="wa-note";
+    n.textContent="Every reply above came from one memory: your clients, your folios, your calendar - on your server, in your tone.";
+    waChips.appendChild(n); return;
+  }
+  var step=waSteps[waDone];
+  var c=document.createElement("button"); c.className="chip"; c.textContent=step.chip;
+  c.addEventListener("click",function(){ playStep(step,c); });
+  waChips.appendChild(c);
+  if(waDone===0){
+    var hint=document.createElement("p"); hint.className="wa-note"; hint.textContent="Tap to send as the client";
+    waChips.appendChild(hint);
+  }
+}
+function playStep(step,chipEl){
+  chipEl.disabled=true;
+  addMsg("out",step.chip.replace(/&/g,"&amp;").replace(/</g,"&lt;"));
+  var ty=document.createElement("div"); ty.className="typing"; ty.innerHTML="<span></span><span></span><span></span>";
+  setTimeout(function(){ waChat.appendChild(ty); waChat.scrollTop=waChat.scrollHeight; },350);
+  var delay=1250;
+  step.replies.forEach(function(r,i){
+    setTimeout(function(){
+      if(ty.parentNode) ty.remove();
+      if(r.t==="doc"){
+        addMsg("in doc",'<div class="doc-ic">PDF</div><div><div class="dn">'+r.name+'</div><div class="ds">'+r.size+'</div></div>');
+      } else {
+        addMsg("in",r.txt);
+      }
+      if(i===step.replies.length-1){
+        waDone++;
+        if(waDone===waSteps.length){
+          setTimeout(function(){
+            var s=document.createElement("div"); s.className="wa-sys";
+            s.textContent="Anything that needs your judgement is held for you - the assistant never answers beyond what you have approved.";
+            waChat.appendChild(s); waChat.scrollTop=waChat.scrollHeight; renderChips();
+          },900);
+        } else { renderChips(); }
+      } else {
+        if(i===0 && step.replies.length>1){ setTimeout(function(){ waChat.appendChild(ty); waChat.scrollTop=waChat.scrollHeight; },300); }
+      }
+    }, delay + i*1500);
+  });
+}
+renderChips();
+
+/* ---------- fund discovery ---------- */
+var engineData=[
+ {agents:[
+   ["Scanning 1,400+ open schemes","Track record filter: 10 years","38 candidates remain"],
+   ["Consistency across 3 market cycles","Expense ratio and manager tenure","12 candidates remain"],
+   ["Comparing against existing folios","Removing overlap above 40%","6 candidates remain"],
+   ["12-year horizon, moderate risk","Education-goal tax lens applied","Final shortlist: 3"]],
+  cards:[
+   {r:"First fit",n:"Diversified flexi-cap category",b:["Consistent across the 2020 and 2022 cycles","Low overlap with her existing folios","Fits a 12-year, step-up SIP path"]},
+   {r:"Second fit",n:"Large and mid cap category",b:["Steadier core for the education goal","Expense ratio in the lowest band","Complements, not repeats, holding no. 2"]},
+   {r:"Third fit",n:"Aggressive hybrid category",b:["Cushions the final 3 years before admission","Built-in rebalancing discipline","A natural glide-path parking spot"]}]},
+ {agents:[
+   ["Scanning 1,400+ open schemes","Track record filter: 15 years","29 candidates remain"],
+   ["Drawdown behaviour in weak years","Manager tenure above 7 years","10 candidates remain"],
+   ["Fit against existing retirement corpus","Removing overlap above 35%","5 candidates remain"],
+   ["20-year horizon, conservative","Retirement tax treatment applied","Final shortlist: 3"]],
+  cards:[
+   {r:"First fit",n:"Large-cap index category",b:["Lowest-cost core for two decades","Nothing exotic, nothing to babysit","Predictable, disciplined compounding"]},
+   {r:"Second fit",n:"Balanced advantage category",b:["Softens the journey in weak years","Suited to a conservative temperament","Keeps him invested when markets test nerves"]},
+   {r:"Third fit",n:"Short-duration debt category",b:["The stability sleeve of the corpus","Funds the first retirement years","Pairs with a systematic withdrawal later"]}]},
+ {agents:[
+   ["Scanning 1,400+ open schemes","Track record filter: 7 years","44 candidates remain"],
+   ["Rolling returns and downside capture","Style consistency check","14 candidates remain"],
+   ["Fit against current equity exposure","Removing overlap above 45%","7 candidates remain"],
+   ["7-year horizon, higher risk appetite","Growth tax lens applied","Final shortlist: 3"]],
+  cards:[
+   {r:"First fit",n:"Mid-cap category",b:["The growth engine of this plan","Seven years gives it room to work","Sized so swings stay sleep-friendly"]},
+   {r:"Second fit",n:"Flexi-cap category",b:["Manager freedom across market caps","Balances the mid-cap concentration","Strong record through full cycles"]},
+   {r:"Third fit",n:"Focused equity category",b:["Conviction picks, limited count","Adds edge without another overlap","Reviewed with you every quarter"]}]}
+];
+var pSel=0;
+document.querySelectorAll("#personaRow .persona").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#personaRow .persona").forEach(function(x){x.classList.remove("sel");});
+    b.classList.add("sel"); pSel=+b.dataset.p;
+  });
+});
+var runBtn=document.getElementById("runEngine");
+var agentGrid=document.getElementById("agentGrid");
+var shortlistWrap=document.getElementById("shortlistWrap");
+var shortlist=document.getElementById("shortlist");
+runBtn.addEventListener("click",function(){
+  runBtn.disabled=true; runBtn.textContent="Agents working...";
+  agentGrid.hidden=false; shortlistWrap.hidden=true;
+  var agents=agentGrid.querySelectorAll(".agent");
+  agents.forEach(function(a){ a.classList.remove("live","done-a"); a.querySelector("ul").innerHTML=""; });
+  var data=engineData[pSel];
+  var step=reduce?60:650;
+  data.agents.forEach(function(lines,ai){
+    var a=agents[ai];
+    setTimeout(function(){ a.classList.add("live"); }, ai*step*1.4);
+    lines.forEach(function(line,li){
+      setTimeout(function(){
+        var el=document.createElement("li"); el.textContent=line;
+        a.querySelector("ul").appendChild(el);
+        if(li===lines.length-1){ a.classList.remove("live"); a.classList.add("done-a"); }
+      }, ai*step*1.4 + (li+1)*step);
+    });
+  });
+  var total=3*step*1.4 + 4*step + 500;
+  setTimeout(function(){
+    shortlist.innerHTML="";
+    data.cards.forEach(function(c,i){
+      var d=document.createElement("div"); d.className="sl-card"; d.style.animationDelay=(i*.14)+"s";
+      d.innerHTML='<div class="rank">'+c.r+'</div><h6>'+c.n+'</h6><ul>'+c.b.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>';
+      shortlist.appendChild(d);
+    });
+    shortlistWrap.hidden=false;
+    runBtn.disabled=false; runBtn.textContent="Run again";
+  }, total);
+});
+
+/* ---------- proposal maker ---------- */
+var pmData=[
+ {for:"Financial plan prepared for Rahul and Priya Deshmukh",
+  body:'<div class="pm-sec"><h6>Where you are going</h6><ul><li>Aarav’s higher education, 2038 - the anchor goal of this plan</li><li>A protection net so the goal survives anything life does</li><li>An emergency reserve of six months of expenses, built first</li></ul></div>'+
+  '<div class="pm-sec"><h6>The path</h6><p>A step-up SIP beginning at a comfortable monthly amount, rising 10% each year with your income. Sample figures are set in the live plan together, across two to three funds shortlisted by the discovery engine and approved by Samadhan.</p></div>'+
+  '<div class="pm-sec"><h6>Protection check</h6><ul><li>Term cover: currently below the recommended 15x annual income - a gap this plan closes first</li><li>Health cover: adequate today; review when Aarav turns 18</li></ul></div>'+
+  '<div class="pm-sec"><h6>Asset mix for this goal</h6><div class="mixbar"><div class="mix-eq" style="width:65%">Equity 65%</div><div class="mix-debt" style="width:25%">Debt 25%</div><div class="mix-gold" style="width:10%">Gold</div></div></div>'+
+  '<div class="pm-sec"><h6>Next steps</h6><ul><li>One-to-one to set the exact monthly amount and fund names</li><li>Term cover application alongside the first SIP</li><li>First annual review: August 2027, already in the calendar</li></ul></div>'},
+ {for:"Financial plan prepared for Suresh Patil",
+  body:'<div class="pm-sec"><h6>Where you are going</h6><ul><li>Retirement at 60, eight years from now, without changing your lifestyle</li><li>An income stream that starts the month the salary stops</li><li>Health cover that outlasts the working years</li></ul></div>'+
+  '<div class="pm-sec"><h6>The path</h6><p>The final eight working years do the heavy lifting: existing corpus consolidated, overlapping funds pruned, and a glide path that moves gains from equity to steadier assets each year as 60 approaches. Exact figures are set together in the live plan.</p></div>'+
+  '<div class="pm-sec"><h6>Protection check</h6><ul><li>Health cover: upgrade to a family floater with a senior-friendly insurer before 55</li><li>Term cover: can taper as the corpus grows - premiums redirected to the goal</li></ul></div>'+
+  '<div class="pm-sec"><h6>Asset mix for this goal</h6><div class="mixbar"><div class="mix-eq" style="width:40%">Equity 40%</div><div class="mix-debt" style="width:50%">Debt 50%</div><div class="mix-gold" style="width:10%">Gold</div></div></div>'+
+  '<div class="pm-sec"><h6>Next steps</h6><ul><li>One-to-one to map every existing folio and policy into the plan</li><li>Systematic withdrawal design in year seven</li><li>Half-yearly reviews from here to sixty</li></ul></div>'}
+];
+var pmSel=0;
+document.querySelectorAll(".pm-p").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".pm-p").forEach(function(x){x.classList.remove("sel");});
+    b.classList.add("sel"); pmSel=+b.dataset.pm;
+  });
+});
+var pmRun=document.getElementById("pmRun");
+var pmDoc=document.getElementById("pmDoc");
+var pmShimmer=document.getElementById("pmShimmer");
+var pmBody=document.getElementById("pmBody");
+var pmFor=document.getElementById("pmFor");
+var pmStatus=document.getElementById("pmStatus");
+pmRun.addEventListener("click",function(){
+  pmRun.disabled=true;
+  pmDoc.hidden=false; pmShimmer.hidden=false; pmBody.innerHTML="";
+  var msgs=["Reading the client card...","Pulling goals and holdings from memory...","Assembling the plan in your format..."];
+  msgs.forEach(function(m,i){ setTimeout(function(){ pmStatus.textContent=m; }, i*(reduce?80:620)); });
+  setTimeout(function(){
+    pmShimmer.hidden=true;
+    pmFor.textContent=pmData[pmSel].for;
+    pmBody.innerHTML=pmData[pmSel].body;
+    pmStatus.textContent="Ready for your review - about forty seconds in the live system.";
+    pmRun.disabled=false; pmRun.textContent="Generate again";
+    pmDoc.scrollIntoView({behavior:reduce?"auto":"smooth",block:"nearest"});
+  }, reduce?300:2100);
+});
+
+/* ---------- before / after ---------- */
+var baRange=document.getElementById("baRange");
+var afterWrap=document.getElementById("afterWrap");
+var baHandle=document.getElementById("baHandle");
+function setBA(v){
+  afterWrap.style.clipPath="inset(0 0 0 "+v+"%)";
+  baHandle.style.left=v+"%";
+}
+setBA(50);
+baRange.addEventListener("input",function(){ setBA(baRange.value); });
+
+/* ---------- gsap flourishes (progressive enhancement) ---------- */
+window.addEventListener("load",function(){
+  if(reduce || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll(".two-col > div:last-child").forEach(function(el){
+    gsap.fromTo(el,{y:40},{y:-40,ease:"none",scrollTrigger:{trigger:el.closest(".scene"),start:"top bottom",end:"bottom top",scrub:1.2}});
+  });
+  gsap.to(".hero-kicker",{scrollTrigger:{trigger:"#s1",start:"top 80%"},opacity:1});
+});
+})();
+</script>
+</body>
+</html>
