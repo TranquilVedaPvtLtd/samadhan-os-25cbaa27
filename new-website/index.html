@@ -90,6 +90,37 @@ nav{position:sticky;top:0;z-index:40;background:rgba(251,247,238,.9);backdrop-fi
   .fc1{left:2%}.fc3{left:2%}
 }
 
+/* PARTNER MARQUEE */
+.partners{background:var(--white);border-bottom:1px solid rgba(27,34,51,.08);padding:22px 0;overflow:hidden}
+.partners .pl{ text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);opacity:.7;margin-bottom:14px}
+.p-track{display:flex;gap:64px;width:max-content;animation:pscroll 30s linear infinite}
+.p-item{font-family:var(--serif);font-weight:600;font-size:1.08rem;color:var(--navy);opacity:.72;white-space:nowrap;display:inline-flex;align-items:center;gap:12px}
+.p-item .pd{width:7px;height:7px;border-radius:50%;background:var(--gold-bright)}
+@keyframes pscroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.p-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%}}
+
+/* NRI CENTRE */
+.nri{background:var(--navy);color:var(--paper)}
+.nri .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:44px;align-items:center}
+@media(max-width:860px){.nri .wrap{grid-template-columns:1fr}}
+.nri .sec-kicker{color:var(--gold-bright)}
+.nri h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.45rem);line-height:1.16;margin-bottom:16px}
+.nri p.lead{color:#C6CCDD;font-size:.95rem;margin-bottom:24px;max-width:480px}
+.nri-points{list-style:none;display:grid;gap:12px}
+.nri-points li{background:rgba(251,247,238,.06);border:1px solid rgba(230,184,92,.25);border-radius:14px;padding:15px 18px;font-size:.87rem;color:#D9D2C0}
+.nri-points li b{color:var(--gold-pale);font-weight:600;display:block;margin-bottom:2px}
+.tz-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.tz{border:1px solid rgba(230,184,92,.35);border-radius:99px;padding:6px 14px;font-size:.74rem;color:var(--gold-pale)}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.news-card{background:var(--white);border:1px solid rgba(27,34,51,.1);border-radius:16px;padding:22px;display:flex;flex-direction:column;transition:.22s}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(27,34,51,.1)}
+.news-card .nd{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.news-card h4{font-family:var(--serif);font-size:1.06rem;font-weight:600;color:var(--navy);line-height:1.4;flex:1}
+.news-card a{display:inline-block;margin-top:14px;font-size:.78rem;font-weight:700;color:var(--gold);text-decoration:none}
+.news-note{font-size:.76rem;color:var(--ink-soft);margin-top:18px}
+
 /* TRUST BAND */
 .band{position:relative;z-index:2;background:var(--navy);color:var(--gold-pale);padding:16px 5vw;display:flex;gap:18px 44px;justify-content:center;flex-wrap:wrap;font-size:.85rem;font-weight:600}
 .band span{display:inline-flex;align-items:center;gap:9px}
@@ -233,10 +264,11 @@ footer a{color:var(--gold-pale);text-decoration:none}
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
+    <li><a href="#nri">NRI Centre</a></li>
     <li><a href="#approach">How we work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#calculator">SIP calculator</a></li>
-    <li><a href="#offices">Offices</a></li>
+    <li><a href="#news">News</a></li>
   </ul>
   <a class="btn btn-gold" href="#contact">Book a one-to-one</a>
 </nav>
@@ -275,6 +307,24 @@ footer a{color:var(--gold-pale);text-decoration:none}
   <span><span class="dot"></span>NRI services</span>
 </div>
 
+<div class="partners" aria-label="Institutions we work with">
+  <div class="pl">Working with India's most trusted institutions</div>
+  <div class="p-track">
+    <span class="p-item"><span class="pd"></span>LIC of India</span>
+    <span class="p-item"><span class="pd"></span>ICICI Lombard</span>
+    <span class="p-item"><span class="pd"></span>The New India Assurance</span>
+    <span class="p-item"><span class="pd"></span>LIC of India</span>
+    <span class="p-item"><span class="pd"></span>ICICI Lombard</span>
+    <span class="p-item"><span class="pd"></span>The New India Assurance</span>
+    <span class="p-item"><span class="pd"></span>LIC of India</span>
+    <span class="p-item"><span class="pd"></span>ICICI Lombard</span>
+    <span class="p-item"><span class="pd"></span>The New India Assurance</span>
+    <span class="p-item"><span class="pd"></span>LIC of India</span>
+    <span class="p-item"><span class="pd"></span>ICICI Lombard</span>
+    <span class="p-item"><span class="pd"></span>The New India Assurance</span>
+  </div>
+</div>
+
 <section id="services">
   <div class="wrap">
     <p class="sec-kicker reveal">What we do</p>
@@ -303,6 +353,28 @@ footer a{color:var(--gold-pale);text-decoration:none}
         <div class="a-step reveal d2"><div class="n">03</div><h3>We stay with you</h3><p>Yearly reviews, reminders before every renewal, and answers within minutes on WhatsApp when you need them.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="nri" id="nri">
+  <div class="wrap">
+    <div>
+      <p class="sec-kicker reveal">NRI Centre</p>
+      <h2 class="reveal d1">Your family's money in India, looked after while you are abroad.</h2>
+      <p class="lead reveal d2">From Dubai, Singapore, London or New Jersey - the practice runs on your clock, not ours. One WhatsApp message reaches the same team your parents meet across the table in Pune.</p>
+      <div class="tz-strip reveal d2">
+        <span class="tz">Gulf - IST evenings</span>
+        <span class="tz">UK and Europe - IST evenings</span>
+        <span class="tz">US - IST mornings</span>
+      </div>
+      <p style="margin-top:26px" class="reveal d3"><a class="btn btn-gold" href="https://wa.me/919890005184?text=Hello%2C%20I%20am%20an%20NRI%20and%20would%20like%20to%20talk%20about%20my%20investments%20in%20India." target="_blank" rel="noopener">WhatsApp the NRI desk</a></p>
+    </div>
+    <ul class="nri-points">
+      <li class="reveal"><b>Invest and insure from anywhere</b>Mutual funds, insurance and bonds managed end to end, with paperwork couriered or digital.</li>
+      <li class="reveal d1"><b>Repatriation without the maze</b>NRE, NRO and repatriation paperwork handled with a taxation-law background behind it.</li>
+      <li class="reveal d2"><b>Answers in seconds, any time zone</b>Statements, SIP status and renewal confirmations on WhatsApp - even at 2 AM IST.</li>
+      <li class="reveal d3"><b>One family, one advisor</b>Your parents in Pune and you abroad see the same plan, guided by the same hand.</li>
+    </ul>
   </div>
 </section>
 
@@ -362,6 +434,19 @@ footer a{color:var(--gold-pale);text-decoration:none}
   <div class="wrap">
     <blockquote class="reveal">"It is nice to have your expectations in a business not only met but exceeded. You are providing outstanding, professional, friendly and effective service."</blockquote>
     <cite class="reveal d1">A client of the practice, in their own words</cite>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <p class="sec-kicker reveal">From the news desk</p>
+    <h2 class="sec-title reveal d1">What is moving in insurance and markets this week.</h2>
+    <div class="news-grid" style="margin-top:40px">
+      <div class="news-card reveal"><div class="nd">Policy - August 2026</div><h4>GoM discusses proposal to scrap GST levy on health and life insurance for individuals</h4><a href="#contact">What it means for your premiums &rarr;</a></div>
+      <div class="news-card reveal d1"><div class="nd">Industry - August 2026</div><h4>Life insurers see strongest growth in over two years</h4><a href="#contact">Discuss your protection cover &rarr;</a></div>
+      <div class="news-card reveal d2"><div class="nd">Markets - August 2026</div><h4>India set to overtake Japan as Asia's second-largest life insurance market, says Allianz</h4><a href="#contact">Talk to us about what is next &rarr;</a></div>
+    </div>
+    <p class="news-note reveal d3">Headlines curated from the industry press and refreshed every morning on the live site - so this page always has a reason to be visited again.</p>
   </div>
 </section>
 
