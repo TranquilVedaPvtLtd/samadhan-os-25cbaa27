@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Samadhan OS - Dashboard Preview</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1428'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='%23E6B85C' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1428;--navy-soft:#16264A;--navy-deep:#070D1F;
+  --gold:#C99A3C;--gold-bright:#E6B85C;--gold-pale:#F6ECD8;
+  --paper:#FBF7EE;--surface:#FFFDF8;
+  --ink:#1B2233;--ink-2:#4A5266;--ink-3:#8A90A0;
+  --line:rgba(27,34,51,.1);
+  --s1:#33518F;--s2:#B07E24;              /* validated data colors */
+  --good:#128C5A;--warn:#B07E24;--bad:#B4423A;
+  --serif:"Fraunces",Georgia,serif;--sans:"Instrument Sans",-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none !important}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.ribbon{background:var(--navy-deep);color:var(--gold-pale);text-align:center;font-size:.76rem;padding:7px 14px}
+.ribbon strong{color:var(--gold-bright)}
+.ribbon a{color:var(--gold-bright)}
+
+.app{display:grid;grid-template-columns:230px 1fr;min-height:calc(100dvh - 32px);max-width:1440px;margin:0 auto}
+@media(max-width:860px){.app{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:30;flex-direction:row;overflow-x:auto;padding:10px 12px !important;gap:4px !important}.side .shead,.side .sfoot{display:none}}
+
+/* SIDEBAR */
+.side{background:var(--navy);color:#C6CCDD;display:flex;flex-direction:column;padding:22px 14px;gap:2px}
+.shead{display:flex;align-items:center;gap:11px;padding:0 8px 18px;border-bottom:1px solid rgba(230,184,92,.18);margin-bottom:14px}
+.shead .mark{width:38px;height:38px;border-radius:10px;background:var(--gold-bright);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:1.2rem}
+.shead .t{font-family:var(--serif);font-weight:600;color:var(--gold-pale);font-size:1rem;line-height:1.1}
+.shead .t small{display:block;font-family:var(--sans);font-size:.64rem;color:#8FA0C4;letter-spacing:.1em;text-transform:uppercase}
+.sitem{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:.86rem;font-weight:500;color:#C6CCDD;background:none;border:none;cursor:pointer;font-family:var(--sans);text-align:left;width:100%;transition:.15s;white-space:nowrap}
+.sitem:hover{background:rgba(230,184,92,.1);color:var(--gold-pale)}
+.sitem.active{background:rgba(230,184,92,.16);color:var(--gold-bright);font-weight:600}
+.sitem .pv{margin-left:auto;font-size:.6rem;font-weight:700;letter-spacing:.06em;color:#8FA0C4;border:1px solid rgba(143,160,196,.4);border-radius:6px;padding:1px 6px}
+.sfoot{margin-top:auto;padding:14px 8px 0;border-top:1px solid rgba(230,184,92,.18);font-size:.7rem;color:#8FA0C4}
+.sfoot b{color:var(--gold-pale);display:block;font-size:.76rem}
+
+/* MAIN */
+.main{padding:22px 26px 40px;min-width:0}
+.topbar{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.topbar h1{font-family:var(--serif);font-weight:600;font-size:1.35rem;color:var(--navy)}
+.topbar .date{font-size:.78rem;color:var(--ink-3)}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:9px 14px;min-width:220px}
+.search input{border:none;outline:none;background:none;font-family:var(--sans);font-size:.84rem;color:var(--ink);width:100%}
+.me{display:flex;align-items:center;gap:9px}
+.me img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gold-bright)}
+.me .n{font-size:.8rem;font-weight:600;color:var(--navy);line-height:1.15}
+.me .r{font-size:.68rem;color:var(--ink-3)}
+
+/* KPI TILES */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.kpi .l{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.kpi .v{font-family:var(--serif);font-weight:600;font-size:1.7rem;color:var(--navy);line-height:1.1}
+.kpi .s{font-size:.74rem;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot.g{background:var(--good)}.dot.w{background:var(--warn)}.dot.b{background:var(--bad)}
+
+.grid2{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:14px;margin-bottom:14px}
+@media(max-width:1020px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:2px}
+.card .sub{font-size:.74rem;color:var(--ink-3);margin-bottom:14px}
+.legend{display:flex;gap:16px;font-size:.74rem;color:var(--ink-2);margin-bottom:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+details.tblv{margin-top:10px;font-size:.76rem;color:var(--ink-2)}
+details.tblv summary{cursor:pointer;color:var(--s1);font-weight:600}
+details.tblv table{border-collapse:collapse;margin-top:8px;width:100%}
+details.tblv th,details.tblv td{border:1px solid var(--line);padding:4px 8px;text-align:right}
+details.tblv th:first-child,details.tblv td:first-child{text-align:left}
+.chart-wrap{position:relative}
+.tip{position:absolute;pointer-events:none;background:var(--navy);color:var(--gold-pale);font-size:.72rem;padding:6px 10px;border-radius:8px;opacity:0;transition:opacity .15s;white-space:nowrap;transform:translate(-50%,-115%);z-index:5}
+.tip b{color:#fff}
+svg.chart{width:100%;height:auto;display:block}
+svg.chart text{font-family:var(--sans)}
+
+/* FEED */
+.feed{list-style:none}
+.feed li{display:flex;gap:11px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--ink-2)}
+.feed li:last-child{border-bottom:none}
+.feed .ag{flex-shrink:0;width:86px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.ag.c1{color:var(--s1)}.ag.c2{color:var(--s2)}.ag.c3{color:var(--good)}
+.feed b{color:var(--ink);font-weight:600}
+.feed .t{margin-left:auto;flex-shrink:0;font-size:.68rem;color:var(--ink-3)}
+
+/* CRM TABLE */
+.filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.filters input,.filters select{font-family:var(--sans);font-size:.84rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+.filters input{min-width:220px}
+.crm-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1.4fr);gap:14px}
+@media(max-width:1020px){.crm-grid{grid-template-columns:1fr}}
+table.crm{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.83rem}
+table.crm th{background:var(--paper);text-align:left;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:11px 14px;border-bottom:1px solid var(--line)}
+table.crm td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:middle}
+table.crm tr:last-child td{border-bottom:none}
+table.crm tbody tr{cursor:pointer;transition:background .15s}
+table.crm tbody tr:hover{background:rgba(230,184,92,.08)}
+table.crm tbody tr.sel{background:rgba(51,81,143,.08);box-shadow:inset 3px 0 0 var(--s1)}
+table.crm b{color:var(--ink);font-weight:600}
+.tag{display:inline-block;font-size:.66rem;font-weight:600;border-radius:7px;padding:2px 8px;background:rgba(51,81,143,.1);color:var(--s1);margin-right:4px}
+.tag.gold{background:rgba(176,126,36,.12);color:var(--s2)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600}
+.client-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:2px}
+.client-card .since{font-size:.72rem;color:var(--ink-3);margin-bottom:14px}
+.cc-sec{border-top:1px solid var(--line);padding:10px 0}
+.cc-sec .k{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.cc-sec p{font-size:.8rem;color:var(--ink-2)}
+
+/* INBOX */
+.inbox{list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.inbox li{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;border-bottom:1px solid var(--line);font-size:.84rem;transition:background .15s}
+.inbox li:hover{background:rgba(230,184,92,.07)}
+.inbox li:last-child{border-bottom:none}
+.src{flex-shrink:0;font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:7px;padding:3px 8px;margin-top:2px}
+.src.wa{background:rgba(18,140,90,.12);color:var(--good)}
+.src.em{background:rgba(51,81,143,.1);color:var(--s1)}
+.src.web{background:rgba(176,126,36,.12);color:var(--s2)}
+.inbox b{color:var(--ink);font-weight:600}
+.inbox p{color:var(--ink-2);font-size:.8rem}
+.inbox .right{margin-left:auto;flex-shrink:0;text-align:right}
+.inbox .tm{font-size:.68rem;color:var(--ink-3)}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:600;border-radius:99px;padding:3px 10px;margin-top:5px}
+.pill.done{background:rgba(18,140,90,.1);color:var(--good)}
+.pill.you{background:rgba(176,126,36,.14);color:var(--s2)}
+.view{animation:vin .3s ease}
+@keyframes vin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;transition-duration:.1s !important}}
+</style>
+</head>
+<body>
+<div class="ribbon">Concept preview of the Samadhan OS dashboard - sample data, prepared by <strong>Jarvis Daily</strong> · <a href="index.html">back to the proposal</a></div>
+<div class="app">
+  <aside class="side">
+    <div class="shead"><span class="mark">S</span><span class="t">Samadhan OS<small>your practice, live</small></span></div>
+    <button class="sitem active" data-view="overview">Overview</button>
+    <button class="sitem" data-view="clients">Clients</button>
+    <button class="sitem" data-view="inbox">Inbox</button>
+    <button class="sitem" data-view="x">Fund research<span class="pv">preview</span></button>
+    <button class="sitem" data-view="x">Proposals<span class="pv">preview</span></button>
+    <button class="sitem" data-view="x">Renewals<span class="pv">preview</span></button>
+    <button class="sitem" data-view="x">Reports<span class="pv">preview</span></button>
+    <div class="sfoot"><b>Installed on your server</b>Your data never leaves your boundary.</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1 id="viewTitle">Good morning, Samadhan</h1><div class="date">Wednesday, 5 August - all systems quiet</div></div>
+      <label class="search"><span style="color:var(--ink-3)">&#8981;</span><input id="q" type="text" placeholder="Search clients, folios, policies..." aria-label="Search"></label>
+      <div class="me"><img src="new-website/assets/samadhan-headshot.webp" alt=""><span><span class="n">Samadhan Sawant</span><br><span class="r">Principal</span></span></div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div id="view-overview" class="view">
+      <div class="kpis">
+        <div class="kpi"><div class="l">SIPs processing this week</div><div class="v">34</div><div class="s"><span class="dot g"></span>all mandates healthy</div></div>
+        <div class="kpi"><div class="l">Renewals due in 30 days</div><div class="v">12</div><div class="s"><span class="dot g"></span>every client reminded</div></div>
+        <div class="kpi"><div class="l">Median reply time</div><div class="v">22 sec</div><div class="s"><span class="dot g"></span>WhatsApp assistant</div></div>
+        <div class="kpi"><div class="l">Needs your judgement</div><div class="v">3</div><div class="s"><span class="dot w"></span>waiting in your queue</div></div>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Client questions answered by the assistant</h3>
+          <div class="sub">Last six months - sample data</div>
+          <div class="chart-wrap" id="barWrap">
+            <svg class="chart" id="barChart" viewBox="0 0 560 220" role="img" aria-label="Bar chart: assistant answers per month, rising from 118 in March to 941 in August"></svg>
+            <div class="tip" id="barTip"></div>
+          </div>
+          <details class="tblv"><summary>View data as table</summary>
+            <table><tr><th>Month</th><th>Answers</th></tr><tr><td>Mar</td><td>118</td></tr><tr><td>Apr</td><td>342</td></tr><tr><td>May</td><td>561</td></tr><tr><td>Jun</td><td>704</td></tr><tr><td>Jul</td><td>862</td></tr><tr><td>Aug</td><td>941</td></tr></table>
+          </details>
+        </div>
+        <div class="card">
+          <h3>Agent activity, this morning</h3>
+          <div class="sub">Everything below happened before 9 AM</div>
+          <ul class="feed">
+            <li><span class="ag c1">Research</span><span><b>Shortlist ready</b> for the Kelkar education goal - 3 categories, reasoning attached, waiting for your review</span><span class="t">8:52</span></li>
+            <li><span class="ag c3">Comms</span><span><b>14 WhatsApp queries answered</b>, 2 held for you (claim question, premium dispute)</span><span class="t">8:41</span></li>
+            <li><span class="ag c2">Finance</span><span><b>214 folio entries reconciled</b> against yesterday's feeds - zero mismatches</span><span class="t">7:58</span></li>
+            <li><span class="ag c1">Proposal</span><span><b>Patil retirement plan drafted</b> in your format - one tap to review and send</span><span class="t">7:31</span></li>
+            <li><span class="ag c3">Operations</span><span><b>Birthday note approved and sent</b> to Mrs. Joshi; renewal reminders queued for Thursday</span><span class="t">7:05</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Interactions handled: the assistant grows, your load stays human</h3>
+        <div class="sub">Last six months - sample data</div>
+        <div class="legend"><span><span class="sw" style="background:var(--s1)"></span>Handled by assistant</span><span><span class="sw" style="background:var(--s2)"></span>Needed you</span></div>
+        <div class="chart-wrap" id="lineWrap">
+          <svg class="chart" id="lineChart" viewBox="0 0 860 240" role="img" aria-label="Line chart: assistant-handled interactions rise from 118 to 941 while those needing Samadhan stay between 88 and 104"></svg>
+          <div class="tip" id="lineTip"></div>
+        </div>
+        <details class="tblv"><summary>View data as table</summary>
+          <table><tr><th>Month</th><th>Assistant</th><th>Needed you</th></tr><tr><td>Mar</td><td>118</td><td>96</td></tr><tr><td>Apr</td><td>342</td><td>104</td></tr><tr><td>May</td><td>561</td><td>91</td></tr><tr><td>Jun</td><td>704</td><td>99</td></tr><tr><td>Jul</td><td>862</td><td>94</td></tr><tr><td>Aug</td><td>941</td><td>88</td></tr></table>
+        </details>
+      </div>
+    </div>
+
+    <!-- CLIENTS -->
+    <div id="view-clients" class="view" hidden>
+      <div class="filters">
+        <input type="text" id="crmSearch" placeholder="Search by name..." aria-label="Search clients">
+        <select id="crmSeg" aria-label="Filter by segment">
+          <option value="">All segments</option><option>SIP active</option><option>Review due</option><option>NRI</option><option>Insurance only</option>
+        </select>
+      </div>
+      <div class="crm-grid">
+        <div style="overflow-x:auto"><table class="crm" id="crmTable">
+          <thead><tr><th>Client</th><th>Segment</th><th>Holdings</th><th>Last review</th><th>Next action</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+        <div class="card client-card" id="clientCard"></div>
+      </div>
+    </div>
+
+    <!-- INBOX -->
+    <div id="view-inbox" class="view" hidden>
+      <ul class="inbox">
+        <li><span class="src wa">WhatsApp</span><span><b>Anita Deshpande</b><p>Asked for her portfolio statement - sent in 40 seconds with a summary, password-protected as usual.</p><span class="pill done">handled</span></span><span class="right"><span class="tm">9:41 AM</span></span></li>
+        <li><span class="src wa">WhatsApp</span><span><b>Prakash Mane</b><p>SIP date question, asked in Marathi - answered in Marathi. Mandate healthy.</p><span class="pill done">handled</span></span><span class="right"><span class="tm">9:12 AM</span></span></li>
+        <li><span class="src web">Website</span><span><b>New enquiry - Kothrud</b><p>Term cover for a 38-year-old IT professional. Qualified by the assistant; one-to-one proposed for tomorrow 11:30 AM.</p><span class="pill you">for you</span></span><span class="right"><span class="tm">8:47 AM</span></span></li>
+        <li><span class="src em">Email</span><span><b>Insurer - renewal receipt</b><p>Payment receipt received and filed automatically against the correct policy.</p><span class="pill done">handled</span></span><span class="right"><span class="tm">8:15 AM</span></span></li>
+        <li><span class="src wa">WhatsApp</span><span><b>Suresh Patil</b><p>Question about a claim intimation - held for you. The assistant never answers claims without you.</p><span class="pill you">for you</span></span><span class="right"><span class="tm">7:58 AM</span></span></li>
+        <li><span class="src wa">WhatsApp</span><span><b>Meena Kulkarni (NRI desk)</b><p>Asked about repatriation paperwork from Dubai - checklist sent, call slot offered in IST evening.</p><span class="pill done">handled</span></span><span class="right"><span class="tm">6:20 AM</span></span></li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* view switching */
+var views={overview:"Good morning, Samadhan",clients:"Clients",inbox:"One inbox"};
+document.querySelectorAll(".sitem").forEach(function(b){
+  b.addEventListener("click",function(){
+    var v=b.dataset.view; if(v==="x")return;
+    document.querySelectorAll(".sitem").forEach(function(x){x.classList.toggle("active",x===b);});
+    ["overview","clients","inbox"].forEach(function(k){ document.getElementById("view-"+k).hidden = k!==v; });
+    document.getElementById("viewTitle").textContent=views[v];
+  });
+});
+
+/* ---- bar chart (single series, blue) ---- */
+var months=["Mar","Apr","May","Jun","Jul","Aug"];
+var bars=[118,342,561,704,862,941];
+(function(){
+  var svg=document.getElementById("barChart"), tip=document.getElementById("barTip");
+  var W=560,H=220,pl=44,pr=10,pt=14,pb=30,max=1000;
+  var iw=(W-pl-pr)/bars.length;
+  var s='';
+  [0,250,500,750,1000].forEach(function(g){
+    var y=pt+(H-pt-pb)*(1-g/max);
+    s+='<line x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'" stroke="rgba(27,34,51,.08)"/>';
+    s+='<text x="'+(pl-8)+'" y="'+(y+4)+'" font-size="10" fill="#8A90A0" text-anchor="end">'+g+'</text>';
+  });
+  bars.forEach(function(v,i){
+    var bw=Math.min(46,iw*0.62), x=pl+i*iw+(iw-bw)/2, h=(H-pt-pb)*v/max, y=H-pb-h;
+    s+='<path class="bar" data-i="'+i+'" d="M'+x+' '+(H-pb)+' V'+(y+4)+' Q'+x+' '+y+' '+(x+4)+' '+y+' H'+(x+bw-4)+' Q'+(x+bw)+' '+y+' '+(x+bw)+' '+(y+4)+' V'+(H-pb)+' Z" fill="#33518F"/>';
+    s+='<text x="'+(x+bw/2)+'" y="'+(H-pb+18)+'" font-size="11" fill="#4A5266" text-anchor="middle">'+months[i]+'</text>';
+    if(i===bars.length-1) s+='<text x="'+(x+bw/2)+'" y="'+(y-7)+'" font-size="11" font-weight="600" fill="#1B2233" text-anchor="middle">'+v+'</text>';
+  });
+  svg.innerHTML=s;
+  svg.addEventListener("mousemove",function(e){
+    var t=e.target.closest(".bar");
+    if(!t){tip.style.opacity=0;return;}
+    var i=+t.dataset.i, r=t.getBoundingClientRect(), w=svg.parentElement.getBoundingClientRect();
+    tip.innerHTML='<b>'+bars[i]+'</b> answers - '+months[i];
+    tip.style.left=(r.left-w.left+r.width/2)+"px"; tip.style.top=(r.top-w.top)+"px"; tip.style.opacity=1;
+  });
+  svg.addEventListener("mouseleave",function(){tip.style.opacity=0;});
+})();
+
+/* ---- line chart (2 series) ---- */
+var la=[118,342,561,704,862,941], lb=[96,104,91,99,94,88];
+(function(){
+  var svg=document.getElementById("lineChart"), tip=document.getElementById("lineTip");
+  var W=860,H=240,pl=44,pr=110,pt=14,pb=30,max=1000;
+  function pt_(i,v){ return [pl+(W-pl-pr)*i/(la.length-1), pt+(H-pt-pb)*(1-v/max)]; }
+  var s='';
+  [0,500,1000].forEach(function(g){
+    var y=pt+(H-pt-pb)*(1-g/max);
+    s+='<line x1="'+pl+'" y1="'+y+'" x2="'+(W-pr)+'" y2="'+y+'" stroke="rgba(27,34,51,.08)"/>';
+    s+='<text x="'+(pl-8)+'" y="'+(y+4)+'" font-size="10" fill="#8A90A0" text-anchor="end">'+g+'</text>';
+  });
+  months.forEach(function(m,i){ var p=pt_(i,0); s+='<text x="'+p[0]+'" y="'+(H-pb+18)+'" font-size="11" fill="#4A5266" text-anchor="middle">'+m+'</text>'; });
+  [[la,"#33518F","Assistant"],[lb,"#B07E24","Needed you"]].forEach(function(sr){
+    var d=sr[0].map(function(v,i){var p=pt_(i,v);return (i?"L":"M")+p[0]+" "+p[1];}).join(" ");
+    s+='<path d="'+d+'" fill="none" stroke="'+sr[1]+'" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+    sr[0].forEach(function(v,i){ var p=pt_(i,v);
+      s+='<circle class="pt" data-s="'+sr[2]+'" data-i="'+i+'" data-v="'+v+'" cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="'+sr[1]+'" stroke="#FFFDF8" stroke-width="2"/>';
+      s+='<circle class="pt-hit" data-s="'+sr[2]+'" data-i="'+i+'" data-v="'+v+'" cx="'+p[0]+'" cy="'+p[1]+'" r="12" fill="transparent"/>';
+    });
+    var e=pt_(sr[0].length-1,sr[0][sr[0].length-1]);
+    s+='<text x="'+(e[0]+12)+'" y="'+(e[1]+4)+'" font-size="11" font-weight="600" fill="'+sr[1]+'">'+sr[2]+'</text>';
+  });
+  svg.innerHTML=s;
+  svg.addEventListener("mousemove",function(e){
+    var t=e.target.closest(".pt-hit,.pt");
+    if(!t){tip.style.opacity=0;return;}
+    var r=t.getBoundingClientRect(), w=svg.parentElement.getBoundingClientRect();
+    tip.innerHTML='<b>'+t.dataset.v+'</b> - '+t.dataset.s+', '+months[+t.dataset.i];
+    tip.style.left=(r.left-w.left+r.width/2)+"px"; tip.style.top=(r.top-w.top)+"px"; tip.style.opacity=1;
+  });
+  svg.addEventListener("mouseleave",function(){tip.style.opacity=0;});
+})();
+
+/* ---- CRM ---- */
+var clients=[
+ {n:"Anita Deshpande",seg:["SIP active"],hold:"4 folios, 2 policies",rev:"12 Jun 2026",next:"Sep review queued",st:["g","On track"],since:2014,goal:"Daughter's admission 2027 - education goal tracking comfortably.",note:"Prefers WhatsApp; statements password-protected. Every conversation since 2014 on file."},
+ {n:"Suresh Patil",seg:["Review due"],hold:"6 folios, 3 policies",rev:"18 Nov 2025",next:"Retirement glide-path review",st:["w","Review due"],since:2011,goal:"Retirement at 60, eight years out. Glide path drafted by the proposal agent.",note:"Claim intimation question waiting in your queue today."},
+ {n:"Meena Kulkarni",seg:["NRI"],hold:"3 folios, 1 policy",rev:"02 Feb 2026",next:"Repatriation checklist call",st:["g","On track"],since:2018,goal:"Return-to-India corpus, 2029. NRI desk handles IST-evening calls from Dubai.",note:"Repatriation paperwork checklist sent this morning."},
+ {n:"Rahul and Priya Deshmukh",seg:["SIP active"],hold:"2 folios, 1 policy",rev:"20 Jul 2026",next:"Term-cover application",st:["w","Protection gap"],since:2024,goal:"Child's education 2038 plus protection. Term cover below 15x income - flagged.",note:"Step-up SIP active; plan draft ready for your review."},
+ {n:"R. Kulkarni",seg:["Insurance only"],hold:"3 policies",rev:"14 Mar 2026",next:"Motor renewal Thursday",st:["g","Reminded"],since:2013,goal:"Protection-first household; no market products by choice.",note:"Motor renewal reminder sent; payment link ready."},
+ {n:"Shalini Iyer",seg:["SIP active","Review due"],hold:"5 folios, 2 policies",rev:"30 Oct 2025",next:"Annual review overdue",st:["b","Overdue"],since:2016,goal:"Wealth creation, 7-year horizon. Mid-cap heavy - rebalance discussion pending.",note:"Assistant has offered three review slots; awaiting her reply."},
+ {n:"Vikram Sane",seg:["NRI","SIP active"],hold:"4 folios",rev:"22 May 2026",next:"Tax-residency documents",st:["g","On track"],since:2019,goal:"US-based; green-card timeline shapes the tax plan.",note:"Finance agent reconciles his folios weekly; documents due September."},
+ {n:"Mrs. Joshi",seg:["Insurance only"],hold:"2 policies",rev:"08 Jan 2026",next:"Birthday note sent today",st:["g","On track"],since:2009,goal:"Pension supplement running since 2021.",note:"With the practice 17 years. Birthday note in your tone approved at 7:15 AM."}
+];
+var tb=document.querySelector("#crmTable tbody"), card=document.getElementById("clientCard");
+function stHtml(st){ return '<span class="st"><span class="dot '+st[0]+'"></span>'+st[1]+'</span>'; }
+function renderCrm(){
+  var q=(document.getElementById("crmSearch").value||"").toLowerCase();
+  var seg=document.getElementById("crmSeg").value;
+  tb.innerHTML="";
+  clients.forEach(function(c,i){
+    if(q && c.n.toLowerCase().indexOf(q)<0) return;
+    if(seg && c.seg.indexOf(seg)<0) return;
+    var tr=document.createElement("tr");
+    tr.innerHTML='<td><b>'+c.n+'</b></td><td>'+c.seg.map(function(s,k){return '<span class="tag'+(k%2?' gold':'')+'">'+s+'</span>';}).join("")+'</td><td>'+c.hold+'</td><td>'+c.rev+'</td><td>'+c.next+'</td><td>'+stHtml(c.st)+'</td>';
+    tr.addEventListener("click",function(){
+      tb.querySelectorAll("tr").forEach(function(x){x.classList.remove("sel");});
+      tr.classList.add("sel"); renderCard(c);
+    });
+    tb.appendChild(tr);
+  });
+}
+function renderCard(c){
+  card.innerHTML='<h4>'+c.n+'</h4><div class="since">Client since '+c.since+' - one card, whole story</div>'+
+  '<div class="cc-sec"><div class="k">Holdings</div><p>'+c.hold+'. '+ (c.st[1]==="On track"?"All premiums and SIPs on time.":"See status: "+c.st[1]+".")+'</p></div>'+
+  '<div class="cc-sec"><div class="k">Goal</div><p>'+c.goal+'</p></div>'+
+  '<div class="cc-sec"><div class="k">Next</div><p>'+c.next+'</p></div>'+
+  '<div class="cc-sec"><div class="k">The memory</div><p>'+c.note+'</p></div>';
+}
+document.getElementById("crmSearch").addEventListener("input",renderCrm);
+document.getElementById("crmSeg").addEventListener("change",renderCrm);
+renderCrm(); renderCard(clients[0]); tb.querySelector("tr") && tb.querySelector("tr").classList.add("sel");
+
+/* top search jumps to clients view */
+document.getElementById("q").addEventListener("input",function(){
+  document.querySelector('[data-view="clients"]').click();
+  document.getElementById("crmSearch").value=this.value; renderCrm();
+});
+})();
+</script>
+</body>
+</html>

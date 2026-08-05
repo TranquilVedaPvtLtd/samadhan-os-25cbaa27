@@ -273,6 +273,26 @@ main{position:relative;z-index:2}
 .gap-chip{font-size:.78rem;color:var(--cream-dim);border:1px solid rgba(196,83,74,.45);background:rgba(196,83,74,.1);border-radius:99px;padding:6px 14px}
 .gap-chip.good{border-color:rgba(31,163,107,.5);background:rgba(31,163,107,.1);color:#8FE0BC}
 
+/* ---------- COMMAND CENTER ---------- */
+.memring{transition:opacity 1s ease}
+.memring.on{opacity:.75 !important}
+#memGlow{transition:transform 1.2s ease;transform-origin:310px 482px;transform:scale(.55)}
+#memGlow.g2{transform:scale(.8)}
+#memGlow.g3{transform:scale(1)}
+#epochLabel{transition:opacity .45s ease}
+.task{transition:opacity .4s ease}
+
+/* ---------- ROADMAP ---------- */
+.road{position:relative;max-width:760px;margin-top:44px}
+.road::before{content:"";position:absolute;left:27px;top:10px;bottom:26px;width:2px;background:linear-gradient(180deg,var(--gold),rgba(230,184,92,.12))}
+.road-step{position:relative;padding:0 0 34px 82px}
+.road-step .n{position:absolute;left:0;top:0;width:56px;height:56px;border-radius:50%;background:var(--navy-800);border:1.6px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold-soft)}
+.road-step .when{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.road-step h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--gold-soft);margin-bottom:8px}
+.road-step ul{list-style:none;font-size:.88rem;color:var(--cream-dim)}
+.road-step li{padding:3px 0 3px 18px;position:relative}
+.road-step li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:2px;background:var(--gold)}
+
 /* ---------- ENGAGE ---------- */
 .engage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px;margin-top:38px}
 .eng-card{background:rgba(10,20,40,.6);border:1px solid rgba(230,184,92,.18);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;transition:transform .3s ease,border-color .3s ease}
@@ -397,6 +417,84 @@ footer{position:relative;z-index:2;text-align:center;padding:26px;font-size:.75r
         </div>
       </div>
       <p class="phone-hint">Tap the screen to move through the three views</p>
+    </div>
+  </div>
+</section>
+
+<!-- S1B COMMAND CENTER -->
+<section class="scene" id="s1b" data-sky="morning" data-time="8:15 AM">
+  <div class="scene-inner">
+    <p class="scene-time reveal">8:15 AM</p>
+    <h2 class="reveal d1">This is what we are actually building: you, commanding a team of six.</h2>
+    <p class="lede reveal d2">The operating system is not an app. It is a staff. Six specialist agents work under you - research, data, communication, proposals, operations, finance - all writing into one memory that belongs to you and grows richer every single day. You remain the principal: they prepare, you decide.</p>
+    <div class="two-col" style="align-items:start">
+      <div>
+        <ul class="quiet-list" style="max-width:none">
+          <li class="reveal"><span class="tick"></span><span><b style="color:var(--gold-soft)">Research agent</b> - scans the fund universe, watches mandates and markets, prepares shortlists with reasons</span></li>
+          <li class="reveal"><span class="tick"></span><span><b style="color:var(--gold-soft)">Data agent</b> - keeps every folio, policy and record reconciled and current, without being asked</span></li>
+          <li class="reveal d1"><span class="tick"></span><span><b style="color:var(--gold-soft)">Communication agent</b> - answers clients on WhatsApp in seconds, in your tone, in their language</span></li>
+          <li class="reveal d1"><span class="tick"></span><span><b style="color:var(--gold-soft)">Proposal agent</b> - turns a client card into a branded financial plan for your review</span></li>
+          <li class="reveal d2"><span class="tick"></span><span><b style="color:var(--gold-soft)">Operations agent</b> - renewals, reminders, birthdays, meeting notes, follow-ups - the quiet work</span></li>
+          <li class="reveal d2"><span class="tick"></span><span><b style="color:var(--gold-soft)">Finance agent</b> - reconciliation, receipts and the numbers of your own practice, always current</span></li>
+        </ul>
+        <p style="margin-top:26px" class="reveal d3">
+          <a class="btn btn-gold" href="dashboard.html" target="_blank" rel="noopener">Open your dashboard preview</a>
+        </p>
+        <p class="reveal d3" style="font-size:.8rem;color:var(--cream-dim);opacity:.75;margin-top:12px">The dashboard is where all of this lands: one screen with your day, your clients, your inbox. Sample data, fully clickable.</p>
+      </div>
+      <div class="reveal d2">
+        <span class="demo-tag">Watch the memory grow</span>
+        <svg id="cmdFig" viewBox="0 0 620 600" style="width:100%;display:block" role="img" aria-label="Diagram: Samadhan as principal directing six agents, all feeding one growing memory">
+          <defs>
+            <clipPath id="pc"><circle cx="310" cy="86" r="42"/></clipPath>
+            <radialGradient id="mg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#E6B85C" stop-opacity=".5"/>
+              <stop offset="100%" stop-color="#E6B85C" stop-opacity=".06"/>
+            </radialGradient>
+          </defs>
+          <g stroke="#E6B85C" stroke-width="1" opacity=".4" id="cmdLines">
+            <path id="lp1" d="M270 120 C 180 160, 110 190, 84 240" fill="none"/>
+            <path id="lp2" d="M285 128 C 230 170, 190 195, 174 244" fill="none"/>
+            <path id="lp3" d="M300 132 C 280 180, 268 200, 264 248" fill="none"/>
+            <path id="lp4" d="M320 132 C 340 180, 352 200, 356 248" fill="none"/>
+            <path id="lp5" d="M335 128 C 390 170, 430 195, 446 244" fill="none"/>
+            <path id="lp6" d="M350 120 C 440 160, 510 190, 536 240" fill="none"/>
+            <path id="mp1" d="M84 320 C 110 380, 200 430, 268 452" fill="none"/>
+            <path id="mp2" d="M174 324 C 200 380, 240 420, 284 448" fill="none"/>
+            <path id="mp3" d="M264 328 C 275 370, 290 410, 302 440" fill="none"/>
+            <path id="mp4" d="M356 328 C 345 370, 330 410, 318 440" fill="none"/>
+            <path id="mp5" d="M446 324 C 420 380, 380 420, 336 448" fill="none"/>
+            <path id="mp6" d="M536 320 C 510 380, 420 430, 352 452" fill="none"/>
+            <path id="bp" d="M258 462 C 150 420, 150 200, 266 116" fill="none" stroke-dasharray="3 5"/>
+          </g>
+          <circle cx="310" cy="86" r="46" fill="none" stroke="#E6B85C" stroke-width="1.6"/>
+          <image href="new-website/assets/samadhan-headshot.webp" x="268" y="44" width="84" height="84" clip-path="url(#pc)" preserveAspectRatio="xMidYMid slice"/>
+          <text x="310" y="152" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="12.5" font-weight="600">YOU - THE PRINCIPAL</text>
+          <text x="310" y="168" text-anchor="middle" fill="#E9E0CB" font-family="Instrument Sans" font-size="10" opacity=".8">they prepare, you decide</text>
+          <g id="agents" font-family="Instrument Sans" text-anchor="middle">
+            <g class="agent-node"><circle cx="84" cy="282" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="84" y="278" fill="#F2D492" font-size="10.5" font-weight="600">Research</text><text x="84" y="292" class="task" data-a="0" fill="#8FA0C4" font-size="8.5">screening funds</text></g>
+            <g class="agent-node"><circle cx="174" cy="284" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="174" y="280" fill="#F2D492" font-size="10.5" font-weight="600">Data</text><text x="174" y="294" class="task" data-a="1" fill="#8FA0C4" font-size="8.5">migrating folios</text></g>
+            <g class="agent-node"><circle cx="264" cy="288" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="264" y="284" fill="#F2D492" font-size="10.5" font-weight="600">Comms</text><text x="264" y="298" class="task" data-a="2" fill="#8FA0C4" font-size="8.5">learning your tone</text></g>
+            <g class="agent-node"><circle cx="356" cy="288" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="356" y="284" fill="#F2D492" font-size="10.5" font-weight="600">Proposal</text><text x="356" y="298" class="task" data-a="3" fill="#8FA0C4" font-size="8.5">reading your format</text></g>
+            <g class="agent-node"><circle cx="446" cy="284" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="446" y="280" fill="#F2D492" font-size="10.5" font-weight="600">Operations</text><text x="446" y="294" class="task" data-a="4" fill="#8FA0C4" font-size="8.5">mapping renewals</text></g>
+            <g class="agent-node"><circle cx="536" cy="282" r="40" fill="#0A1428" stroke="#E6B85C" stroke-width="1.3"/><text x="536" y="278" fill="#F2D492" font-size="10.5" font-weight="600">Finance</text><text x="536" y="292" class="task" data-a="5" fill="#8FA0C4" font-size="8.5">first reconciliation</text></g>
+          </g>
+          <g id="memG">
+            <circle cx="310" cy="482" r="72" fill="url(#mg)" id="memGlow"/>
+            <circle cx="310" cy="482" r="30" fill="#0A1428" stroke="#E6B85C" stroke-width="1.6"/>
+            <circle cx="310" cy="482" r="46" fill="none" stroke="#E6B85C" stroke-width="1" opacity="0" class="memring" id="mr2"/>
+            <circle cx="310" cy="482" r="62" fill="none" stroke="#E6B85C" stroke-width="1" opacity="0" class="memring" id="mr3"/>
+            <text x="310" y="478" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="10.5" font-weight="600">ONE</text>
+            <text x="310" y="492" text-anchor="middle" fill="#F2D492" font-family="Instrument Sans" font-size="10.5" font-weight="600">MEMORY</text>
+          </g>
+          <circle r="3.2" fill="#5ED6A2"><animateMotion dur="3.4s" repeatCount="indefinite" ><mpath href="#mp1"/></animateMotion></circle>
+          <circle r="3.2" fill="#5ED6A2"><animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite"><mpath href="#mp3"/></animateMotion></circle>
+          <circle r="3.2" fill="#5ED6A2"><animateMotion dur="3.4s" begin="1.2s" repeatCount="indefinite"><mpath href="#mp5"/></animateMotion></circle>
+          <circle r="3.2" fill="#5ED6A2"><animateMotion dur="3.4s" begin="1.8s" repeatCount="indefinite"><mpath href="#mp6"/></animateMotion></circle>
+          <circle r="3.2" fill="#E6B85C"><animateMotion dur="4.5s" repeatCount="indefinite"><mpath href="#bp"/></animateMotion></circle>
+          <text x="310" y="586" text-anchor="middle" id="epochLabel" fill="#E9E0CB" font-family="Fraunces" font-style="italic" font-size="15">Month 1 - your clients, folios and policies move in</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -586,6 +684,33 @@ footer{position:relative;z-index:2;text-align:center;padding:26px;font-size:.75r
     <p style="margin-top:30px" class="reveal d3">
       <a class="btn btn-gold" href="new-website/" target="_blank" rel="noopener">Open your new website</a>
     </p>
+  </div>
+</section>
+
+<!-- S7B ROADMAP -->
+<section class="scene" id="s7b" data-sky="night" data-time="The plan">
+  <div class="scene-inner">
+    <p class="scene-time reveal">The road there</p>
+    <h2 class="reveal d1">Four steps, no leap of faith.</h2>
+    <p class="lede reveal d2">Nothing arrives as a big bang. Each step is installed, proven in your daily work, and signed off by you before the next begins.</p>
+    <div class="road">
+      <div class="road-step reveal"><span class="n">1</span>
+        <p class="when">Weeks 1 and 2</p><h4>The OS moves in</h4>
+        <ul><li>Installed on your machine or your own private server - your choice, your keys</li><li>Clients, folios, policies and history become one memory</li><li>Your dashboard switches on: first look at your whole practice on one screen</li></ul>
+      </div>
+      <div class="road-step reveal d1"><span class="n">2</span>
+        <p class="when">Weeks 3 and 4</p><h4>WhatsApp comes alive</h4>
+        <ul><li>Official WhatsApp business gateway connected to the OS</li><li>The assistant learns your tone - English, Hindi and Marathi</li><li>Approval queue on your phone: it answers the routine, you approve what matters</li></ul>
+      </div>
+      <div class="road-step reveal d2"><span class="n">3</span>
+        <p class="when">Month 2</p><h4>The agents report for duty</h4>
+        <ul><li>Research, proposal, operations and finance agents deployed one at a time</li><li>Each one proven on your real work before the next arrives</li><li>Morning brief begins: your practice reports to you daily at 7 AM</li></ul>
+      </div>
+      <div class="road-step reveal d3"><span class="n">4</span>
+        <p class="when">Month 3 onward</p><h4>The memory compounds</h4>
+        <ul><li>Reviews, renewals and briefs run themselves; the memory grows sharper every week</li><li>Your new website goes live with the assistant answering visitors</li><li>When you are ready: the NRI desk, and the rollout to your circle</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -870,6 +995,42 @@ pmRun.addEventListener("click",function(){
     pmDoc.scrollIntoView({behavior:reduce?"auto":"smooth",block:"nearest"});
   }, reduce?300:2100);
 });
+
+/* ---------- command-center epoch cycle ---------- */
+(function(){
+  var epochs=[
+    {label:"Month 1 - your clients, folios and policies move in",
+     tasks:["screening funds","migrating folios","learning your tone","reading your format","mapping renewals","first reconciliation"],ring:1},
+    {label:"Month 6 - every conversation, decision and review remembered",
+     tasks:["tracking 38 mandates","zero mismatches","941 answers this month","plan in 40 seconds","renewals on autopilot","books always current"],ring:2},
+    {label:"Year 2 - a second brain that knows your practice like you do",
+     tasks:["watching the market","a decade indexed","clients feel known","plans self-updating","nothing slips, ever","audit-ready daily"],ring:3}
+  ];
+  var i=0, lbl=document.getElementById("epochLabel");
+  var mr2=document.getElementById("mr2"), mr3=document.getElementById("mr3"), glow=document.getElementById("memGlow");
+  function apply(){
+    var e=epochs[i];
+    lbl.style.opacity=0;
+    setTimeout(function(){ lbl.textContent=e.label; lbl.style.opacity=1; },450);
+    document.querySelectorAll("#cmdFig .task").forEach(function(t,k){
+      t.style.opacity=0;
+      setTimeout(function(){ t.textContent=e.tasks[k]; t.style.opacity=1; },400);
+    });
+    mr2.classList.toggle("on", e.ring>=2);
+    mr3.classList.toggle("on", e.ring>=3);
+    glow.classList.toggle("g2", e.ring===2);
+    glow.classList.toggle("g3", e.ring===3);
+  }
+  var cmdTimer=null;
+  var cmdIO=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !cmdTimer){
+        cmdTimer=setInterval(function(){ i=(i+1)%epochs.length; apply(); }, reduce?5200:3600);
+      } else if(!e.isIntersecting && cmdTimer){ clearInterval(cmdTimer); cmdTimer=null; }
+    });
+  },{threshold:.35});
+  cmdIO.observe(document.getElementById("cmdFig"));
+})();
 
 /* ---------- before / after ---------- */
 var baRange=document.getElementById("baRange");
